@@ -1,0 +1,48 @@
+! -*- mode: conf-xdefaults -*-
+
+XTerm*eightBitInput: true
+XTerm*utf8: true
+XTerm*saveLines: 1000
+
+! Separate backspace and C-h.
+XTerm*ttyModes: erase ^?
+XTerm*vt100*translations: #override \
+    <Key> BackSpace: string(0x7f)
+! XTerm*backarrowKeyIsErase: true
+
+! Accept handling fake keys.
+XTerm*vt100*allowSendEvents: true
+
+! XTerm*rightScrollBar: True
+! XTerm*scrollBar: False
+
+! XTerm*geometry: 100x40
+! XTerm*font: -*-dejavu sans mono-*-r-normal-*-*-12-*-*-p-*-*
+!XTerm*faceName: default
+XTerm*faceName: DejaVu Sans Mono
+XTerm*faceSize: 12
+XTerm*metaSendsEscape: true
+
+! XTerm*cursorBlink: true
+! XTerm*cursorUnderLine: true
+XTerm*cursorColor: SpringGreen4
+
+XTerm*background:   #DED6C5
+XTerm*foreground:   grey20
+! XTerm*color0:      #000000
+XTerm*color1:      #D81111
+XTerm*color2:      #499005
+XTerm*color3:      #C4A000
+! XTerm*color4:      #414171
+! XTerm*color5:      #963c59
+XTerm*color6:      #07968A
+XTerm*color7:      #A6A7A3
+! XTerm*color7:      #bebebe
+! XTerm*color8:      #666666
+XTerm*color9:      #FC1919
+! XTerm*color10:     #c5f779
+XTerm*color10:     #73C424
+XTerm*color12:     #3D92ED
+! XTerm*color14:     #71bebe
+XTerm*color14:     #23D5C7
+! XTerm*color15:     #A6A7A3

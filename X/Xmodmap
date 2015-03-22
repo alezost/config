@@ -1,0 +1,20 @@
+! -*- mode: conf-xdefaults -*-
+
+keycode 135 = Hyper_R
+! keycode 133 = Super_L
+
+keycode 213 = XF86LogOff
+keycode 120 = XF86Documents
+keycode 164 = XF86Pictures
+keycode 221 = XF86Music
+keycode 223 = XF86Spell
+keycode 107 = XF86ScreenSaver
+
+! Bind CapsLock to Kanji (for additional bindings):
+remove Lock = Caps_Lock
+keysym Caps_Lock = Kanji
+
+clear mod3
+clear mod4
+add mod3 = Hyper_R
+add mod4 = Super_L

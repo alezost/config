@@ -1,0 +1,404 @@
+# -*- mode: conf-space -*-
+
+begin
+    flags = startup_mode
+    mode = main
+end
+
+begin
+    prog = irexec
+    button = KEY_GREEN
+    button = KEY_MODE
+    config = mosdctl -e showstr
+    flags = quit
+end
+
+######## MAIN MODE #############################################
+
+begin main
+    begin
+        prog = irexec
+        button = KEY_POWER
+        mode = tv
+        config = mosdctl -s 'mode: tv' ; tvtime_sounded &
+        flags = quit
+    end
+    begin
+        prog = irexec
+        button = KEY_SCREEN
+        mode = mouse
+        config = mosdctl -s 'mode: mouse'
+        flags = quit
+    end
+    begin
+        prog = irexec
+        button = KEY_MODE
+        mode = mouse
+        config = mosdctl -s 'mode: mouse'
+        flags = quit
+    end
+
+    begin
+        prog = irexec
+        button = KEY_RED
+        config = xterm -e alsamixer &
+        flags = quit
+    end
+
+    begin
+        prog = irexec
+        button = KEY_0
+        config = xdotool key g
+        flags = quit
+    end
+
+    # Cursor control & motion
+    begin
+        prog = irexec
+        button = KEY_2
+        config = xdotool key Up
+        repeat = 1
+        flags = quit
+    end
+    begin
+        prog = irexec
+        button = KEY_8
+        config = xdotool key Down
+        repeat = 1
+        flags = quit
+    end
+    begin
+        prog = irexec
+        button = KEY_4
+        config = xdotool key Left
+        repeat = 1
+        flags = quit
+    end
+    begin
+        prog = irexec
+        button = KEY_6
+        config = xdotool key Right
+        repeat = 1
+        flags = quit
+    end
+    begin
+        prog = irexec
+        button = KEY_1
+        config = xdotool key Home
+        flags = quit
+    end
+    begin
+        prog = irexec
+        button = KEY_7
+        config = xdotool key End
+        flags = quit
+    end
+    begin
+        prog = irexec
+        button = KEY_3
+        config = xdotool key Page_Up
+        flags = quit
+    end
+    begin
+        prog = irexec
+        button = KEY_9
+        config = xdotool key Page_Down
+        flags = quit
+    end
+    begin
+        prog = irexec
+        button = KEY_5
+        config = xdotool key Return
+        flags = quit
+    end
+
+    # EMMS control
+    begin
+        prog = irexec
+        button = KEY_PLAYPAUSE
+        config = emacsclient -s server-emms --eval '(emms-pause)'
+        flags = quit
+    end
+    begin
+        prog = irexec
+        button = KEY_GREEN
+        button = KEY_RECORD
+        config = emacsclient -s server-emms --eval '(emms-previous)'
+        flags = quit
+    end
+    begin
+        prog = irexec
+        button = KEY_GREEN
+        button = KEY_STOP
+        config = emacsclient -s server-emms --eval '(emms-next)'
+        flags = quit
+    end
+    begin
+        prog = irexec
+        button = KEY_RECORD
+        config = emacsclient -s server-emms --eval '(utl-emms-seek-backward 10)'
+        flags = quit
+    end
+    begin
+        prog = irexec
+        button = KEY_STOP
+        config = emacsclient -s server-emms --eval '(utl-emms-seek-forward 10)'
+        flags = quit
+    end
+    begin
+        prog = irexec
+        button = KEY_OK
+        config = emacsclient -s server-emms --eval '(utl-emms-mpv-show-progress)'
+        flags = quit
+    end
+    begin
+        prog = irexec
+        button = KEY_ZOOM
+        config = emacsclient -s server-emms --eval '(utl-emms-mpv-toggle-fullscreen)'
+        flags = quit
+    end
+    begin
+        prog = irexec
+        button = KEY_VOLUMEDOWN
+        config = emacsclient -s server-emms --eval '(utl-emms-seek-backward 60)'
+        flags = quit
+    end
+    begin
+        prog = irexec
+        button = KEY_VOLUMEUP
+        config = emacsclient -s server-emms --eval '(utl-emms-seek-forward 60)'
+        flags = quit
+    end
+
+end main
+
+######## MOUSE MODE ############################################
+
+begin mouse
+    begin
+        prog = irexec
+        button = KEY_SCREEN
+        mode = main
+        config = mosdctl -s 'mode: main'
+        flags = quit
+    end
+    begin
+        prog = irexec
+        button = KEY_MODE
+        mode = tv
+        config = mosdctl -s 'mode: tv'
+        flags = quit
+    end
+    begin
+        prog = irexec
+        button = KEY_CHANNELUP
+        repeat = 1
+        flags = quit
+    end
+    begin
+        prog = irexec
+        button = KEY_CHANNELDOWN
+        repeat = 1
+        flags = quit
+    end
+end mouse
+
+######## TV MODE ###############################################
+
+begin tv
+    begin
+        prog = irexec
+        button = KEY_POWER
+        mode = main
+        config = mosdctl -s 'mode: main' ; tvtime-command QUIT
+        flags = quit
+    end
+    begin
+        prog = irexec
+        button = KEY_MODE
+        mode = main
+        config = mosdctl -s 'mode: main'
+        flags = quit
+    end
+
+    begin
+        prog = irexec
+        button = KEY_OK
+        config = tvtime-command DISPLAY_INFO
+        flags = quit
+    end
+
+    begin
+        prog = irexec
+        button = KEY_VOLUMEUP
+        config = tvtime-command CHANNEL_UP
+        flags = quit
+    end
+
+    begin
+        prog = irexec
+        button = KEY_VOLUMEDOWN
+        config = tvtime-command CHANNEL_DOWN
+        flags = quit
+    end
+
+    begin
+        prog = irexec
+        button = KEY_1
+        config = tvtime-command CHANNEL_1
+        flags = quit
+    end
+    begin
+        prog = irexec
+        button = KEY_2
+        config = tvtime-command CHANNEL_2
+        flags = quit
+    end
+    begin
+        prog = irexec
+        button = KEY_3
+        config = tvtime-command CHANNEL_3
+        flags = quit
+    end
+    begin
+        prog = irexec
+        button = KEY_4
+        config = tvtime-command CHANNEL_4
+        flags = quit
+    end
+    begin
+        prog = irexec
+        button = KEY_5
+        config = tvtime-command CHANNEL_5
+        flags = quit
+    end
+    begin
+        prog = irexec
+        button = KEY_6
+        config = tvtime-command CHANNEL_6
+        flags = quit
+    end
+    begin
+        prog = irexec
+        button = KEY_7
+        config = tvtime-command CHANNEL_7
+        flags = quit
+    end
+    begin
+        prog = irexec
+        button = KEY_8
+        config = tvtime-command CHANNEL_8
+        flags = quit
+    end
+    begin
+        prog = irexec
+        button = KEY_9
+        config = tvtime-command CHANNEL_9
+        flags = quit
+    end
+    begin
+        prog = irexec
+        button = KEY_0
+        config = tvtime-command CHANNEL_0
+        flags = quit
+    end
+    begin
+        prog = irexec
+        button = KEY_ZOOM
+        config = tvtime-command TOGGLE_FULLSCREEN
+        flags = quit
+    end
+    begin
+        prog = irexec
+        button = KEY_AGAIN
+        config = tvtime-command CHANNEL_PREV
+        flags = quit
+    end
+end tv
+
+######## GLOBAL KEYS ###########################################
+
+begin
+    prog = irexec
+    button = KEY_INFO
+    config = clock &
+end
+
+begin
+    prog = irexec
+    button = KEY_TEXT
+    config = stumpish -e utl-toggle-root < /dev/null
+end
+
+# begin
+#     prog = irexec
+#     button = KEY_VIDEO
+#     config = sudo chvt 9
+#     config = sudo chvt 7
+# end
+
+# space, escape and 'q' keys
+begin
+    prog = irexec
+    button = KEY_GREEN
+    button = KEY_CAMERA
+    config = xdotool key q
+    flags = quit
+end
+begin
+    prog = irexec
+    # freeze key
+    button = KEY_CAMERA
+    config = xdotool key space
+    flags = quit
+end
+begin
+    prog = irexec
+    # tv key
+    button = KEY_TUNER
+    config = xdotool key Escape
+    flags = quit
+end
+
+# VOLUME KEYS
+begin
+    prog = irexec
+    button = KEY_GREEN
+    button = KEY_MUTE
+    config = setaudio -sq Line toggle
+    flags = quit
+end
+begin
+    prog = irexec
+    button = KEY_GREEN
+    button = KEY_CHANNELUP
+    config = setaudio -sq Line 5+
+    flags = quit
+end
+begin
+    prog = irexec
+    button = KEY_GREEN
+    button = KEY_CHANNELDOWN
+    config = setaudio -sq Line 5-
+    flags = quit
+end
+begin
+    prog = irexec
+    button = KEY_MUTE
+    # config = amixer -q set Master toggle
+    config = setaudio -sq Master toggle
+end
+begin
+    prog = irexec
+    button = KEY_CHANNELUP
+    repeat = 1
+    # config = amixer -q set Master 2%+
+    config = setaudio -sq Master 1+
+end
+begin
+    prog = irexec
+    button = KEY_CHANNELDOWN
+    repeat = 1
+    # config = amixer -q set Master 2%-
+    config = setaudio -sq Master 1-
+end

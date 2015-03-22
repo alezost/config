@@ -1,0 +1,39 @@
+! -*- mode: conf-xdefaults -*-
+
+!!! Emacs
+Emacs.MenuBar: off
+Emacs.ToolBar: off
+Emacs.ScrollBars: off
+! Emacs.font: -*-Liberation Mono-normal-r-*-*-12-*-*-*-*-0-*-1
+
+!!! Xft
+Xft.antialias: true
+Xft.hinting: true
+Xft.hintstyle: hintslight
+Xft.rgba: rgb
+ 
+!!! XFontsel
+!XFontSel*sampleText.background: TEXTBG
+XFontSel*menu*showUnselectable: false
+XFontSel*MenuButton.shadowWidth: 0
+XFontsel*Toggle*ToggleStyle: check
+XFontsel*MenuButton*Justify:    left
+XFontsel*MenuButton*MenuButtonStyle: select
+.xfontsel.pane.commandBox.quitButton.background: #777777
+.xfontsel.pane.commandBox.quitButton.foreground: snow
+.xfontsel.pane.commandBox.ownButton.background: orange3
+.xfontsel.pane.commandBox.ownButton.foreground: snow
+.xfontsel.pane.commandBox.countLabel.background: snow
+.xfontsel.pane.viewPort.sampleText.background: snow
+.xfontsel.pane.viewPort.sampleText.foreground: gray10
+.xfontsel.pane.fieldBox.MenuButton.borderWidth: 1
+.xfontsel.pane.fieldBox.MenuButton.internalHeight: 1
+.xfontsel.pane.fieldBox.MenuButton.internalWidth: 2
+.xfontsel.pane.fieldBox.MenuButton.shapeStyle: rectangle
+
+! XClock
+XClock.Clock.update: 1
+XClock.Clock.analog: false
+XClock.Clock.background: #DED6C5
+XClock.Clock.font: -*-lucida-medium-r-*-*-34-*-*-*-*-*-*
+XClock*geometry: 300x200+50+100

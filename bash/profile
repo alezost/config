@@ -1,0 +1,3 @@
+# -*- mode: sh -*-
+
+[[ -f ~/.bashrc ]] && . ~/.bashrc

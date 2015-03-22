@@ -1,0 +1,6 @@
+/auth
+/gpg/*
+!/gpg/gpg-agent.conf
+/guile-modules/al/guix
+/rtorrent/session
+/ssh

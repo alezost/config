@@ -1,0 +1,9 @@
+fs=1  # fullscreen
+
+ao=alsa
+
+# subfont-osd-scale=3
+osd-duration=2000
+
+[gnome-mplayer]
+msglevel=all=5
