@@ -1,6 +1,9 @@
 /auth
+/conkeror
+/emacs
 /gpg/*
 !/gpg/gpg-agent.conf
 /guile-modules/al/guix
 /rtorrent/session
 /ssh
+/stumpwm

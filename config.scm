@@ -55,6 +55,13 @@
    ("config"
     ((home-file "bin/config") "../config/config.scm"))
 
+   ("conkeror"
+    ((home-file ".conkerorrc") "config/conkeror/init.js"))
+   ("emacs"
+    ((home-file ".emacs.d/init.el") "../config/emacs/config/init.el"))
+   ("stumpwm"
+    ((home-file ".stumpwmrc") "config/stumpwm/init.lisp"))
+
    ("ssh"
     ((home-file ".ssh") "config/ssh"))
    ("gpg"
