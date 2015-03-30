@@ -98,6 +98,10 @@
   "Return list of all available config names."
   (map config-name %configs))
 
+(define (configs-links)
+  "Return list of all available config links."
+  (append-map config-links %configs))
+
 
 ;;; Command-line args
 
@@ -108,6 +112,9 @@ List, show info or deploy available/specified configurations.")
 Options:
   -h, --help        display this help and exit
   -l, --list        list available configurations and exit
+  -O, --list-old    list old configuration files and exit
+  -o, --ls-old      perform 'ls -l' on the old configuration files and exit
+  -D, --delete-old  delete old configuration files and exit
   -s, --show        show info of the specified configurations
   -d, --deploy      deploy (create symlinks) the specified configurations")
   (display "\n
@@ -115,10 +122,46 @@ If '--show' or '--deploy' option is used and no configuration is
 specified, then all available ones will be shown or deployed.")
   (newline))
 
+(define* (list-strings strings #:key title
+                       (proc (lambda (s)
+                               (format #t "~{~a~%~}" (sort s string-ci<)))))
+  "Display list of STRINGS using PROC."
+  (when title
+    (display title)
+    (newline))
+  (proc strings))
+
 (define (show-configs-names)
-  (display "Available configurations:\n")
-  (format #t "~{~a~%~}"
-          (sort (configs-names) string-ci<)))
+  (list-strings (configs-names)
+                #:title "Available configurations:"))
+
+(define (call-on-old-files proc)
+  "Call PROC on old configuration files."
+  (let ((files (old-files)))
+    (if (null? files)
+        (display "There are no old configuration files.\n")
+        (proc (old-files)))))
+
+(define (show-old-files)
+  (call-on-old-files
+   (lambda (files)
+     (list-strings files
+                   #:title "Old configuration files:"))))
+
+(define (ls-old-files)
+  "Perform 'ls -l' on the old configuration files."
+  (call-on-old-files
+   (lambda (files)
+     (list-strings
+      files
+      #:title "Old configuration files:"
+      #:proc (lambda (files)
+                   (apply system*
+                          "ls" "-l" "--directory" "--color=auto"
+                          (sort files string-ci<)))))))
+
+(define (delete-old-files)
+  (call-on-old-files (cut map delete-file-recursively <>)))
 
 (define %options
   (list (option '(#\h "help") #f #f
@@ -128,6 +171,18 @@ specified, then all available ones will be shown or deployed.")
         (option '(#\l "list") #f #f
                 (lambda _
                   (show-configs-names)
+                  (exit 0)))
+        (option '(#\O "list-old") #f #f
+                (lambda _
+                  (show-old-files)
+                  (exit 0)))
+        (option '(#\o "ls-old") #f #f
+                (lambda _
+                  (ls-old-files)
+                  (exit 0)))
+        (option '(#\D "delete-old") #f #f
+                (lambda _
+                  (delete-old-files)
                   (exit 0)))
         (option '(#\s "show") #f #f
                 (lambda (opt name arg seed)
@@ -159,6 +214,13 @@ specified, then all available ones will be shown or deployed.")
 (define (old-unique-filename filename)
   "Return unique name of an old config file that should be backed up."
   (unique-filename (old-filename filename)))
+
+(define (old-files)
+  "Return list of old config files."
+  (append-map (lambda (link)
+                (find-matching-files
+                 (old-filename (link-filename link))))
+              (configs-links)))
 
 (define (options->configs-names opts)
   "Return list of config names from OPTS alist."
