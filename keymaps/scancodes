@@ -1,0 +1,22 @@
+;; -*- mode: scheme; comment-column: 16 -*-
+
+;; This is a list of arguments for 'setkeycodes' command (from 'kbd'
+;; package) to map some missing kernel scancodes for Microsoft® Natural®
+;; MultiMedia Keyboard.
+
+("0xE4" "156"   ; My Pictures
+ "0xBC" "213"   ; My Music
+ "0x85" "216"   ; Messenger
+ "0x96" "205"   ; Log Off
+ "0xBB" "138"   ; Help
+ "0x88" "131"   ; Undo
+ "0x87" "182"   ; Redo
+ "0xBE" "181"   ; New
+ "0xBF" "134"   ; Open
+ "0xC0" "206"   ; Close
+ "0xC1" "232"   ; Reply
+ "0xC2" "159"   ; Fwd
+ "0xC3" "231"   ; Send
+ "0xA3" "215"   ; Spell
+ "0xD7" "234"   ; Save
+ "0xD8" "210")  ; Print
