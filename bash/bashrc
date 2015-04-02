@@ -3,9 +3,6 @@
 # If not running interactively, do nothing.
 [ -z "$PS1" ] && return
 
-# Allow non-login shells such as an xterm to get things right. TODO check if works (from guix)
-# test -f /etc/profile && source /etc/profile
-
 ################################################################
 ### Environment
 
@@ -13,7 +10,8 @@ export EDITOR='emacsclient'
 export VIEWER='emacsclient'
 
 export MY_CONFIG_DIR="$HOME/config"
-export MY_GUILE_DIR="$MY_CONFIG_DIR/guile-modules"
+export MY_PROGS_DIR="$HOME/progs"
+export MY_GUILE_DIR="$MY_PROGS_DIR/guile/modules"
 
 export MY_GUIX_USER_PROFILE="$HOME/.guix-profile"
 export MY_GUIX_SYSTEM_PROFILE="/run/current-system/profile"
@@ -25,7 +23,7 @@ if [ -d $MY_GUIX_SYSTEM_PROFILE ]; then
 
     export GUILE_LOAD_PATH="$MY_GUILE_DIR:$MY_GUIX_GUILE_DIR:$HOME/src/guix-os"
     export GUILE_LOAD_COMPILED_PATH="$MY_GUIX_GUILE_DIR:$HOME/src/guix-os"
-    export GUIX_PACKAGE_PATH="$MY_GUILE_DIR/al"  # TODO check
+    export GUIX_PACKAGE_PATH="$MY_CONFIG_DIR/guix/guix-package-path"
     export GUIX_BUILD_OPTIONS="--no-grub"
 
     export PKG_CONFIG_PATH="${MY_GUIX_USER_PROFILE}/lib/pkgconfig:${MY_GUIX_USER_PROFILE}/share/pkgconfig:${MY_GUIX_SYSTEM_PROFILE}/lib/pkgconfig:${MY_GUIX_SYSTEM_PROFILE}/share/pkgconfig"
