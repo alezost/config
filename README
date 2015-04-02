@@ -1,0 +1,14 @@
+-*- mode: org; -*-
+
+This repository contains my configuration files (aka "dot-files") for
+various programs.  But not all: several "big" (usually programmable)
+configs (for emacs, stumpwm, conkeror, etc.) live in their own
+repositories (they may be found in [[https://gitlab.com/alezost-config]]
+group).
+
+To deploy these config files, appropriate symlinks are being created
+(for example, =~/.bashrc= is becoming a symlink to =bash/bashrc= from
+this repo).  For this purpose (and for other useful actions, like
+listing available configs or removing old configuration files), I use
+=config.scm= script from this repo.  It relies on some of my
+[[https://gitlab.com/alezost/guile-modules]].
