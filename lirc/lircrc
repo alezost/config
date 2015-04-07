@@ -330,12 +330,13 @@ begin
     config = stumpish -e utl-toggle-root < /dev/null
 end
 
-# begin
-#     prog = irexec
-#     button = KEY_VIDEO
-#     config = sudo chvt 9
-#     config = sudo chvt 7
-# end
+begin
+    prog = irexec
+    button = KEY_VIDEO
+    button = KEY_VIDEO
+    config = sudo chvt 11
+    config = sudo chvt 7
+end
 
 # space, escape and 'q' keys
 begin
