@@ -1,8 +1,8 @@
 # Console Dvorak keymap (intended to be used with "loadkeys" command).
 
-# This file is the same as ".../keymaps/i386/dvorak/dvorak.map.gz" from
-# "kbd" package <ftp://ftp.kernel.org/pub/linux/utils/kbd/> except it
-# uses a usual Alt key instead of AltGr.
+# This file is the same as the usual dvorak keymap
+# (".../keymaps/i386/dvorak/dvorak.map.gz" from "kbd" package) except it
+# uses a normal Alt key instead of AltGr.
 
 keymaps 0-2,4-6,8-9,12
 alt_is_meta

@@ -1,0 +1,4 @@
+-*- mode: org; -*-
+
+This directory contains some keyboard configurations for "loadkeys",
+"setkeycodes" and potentially for other stuff from [[ftp://ftp.kernel.org/pub/linux/utils/kbd/]["kbd" package]].

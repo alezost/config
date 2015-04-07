@@ -1,8 +1,7 @@
 ;; -*- mode: scheme; comment-column: 16 -*-
 
-;; This is a list of arguments for 'setkeycodes' command (from 'kbd'
-;; package) to map some missing kernel scancodes for Microsoft® Natural®
-;; MultiMedia Keyboard.
+;; This is a list of arguments for 'setkeycodes' command to map some
+;; missing kernel scancodes for Microsoft® Natural® MultiMedia Keyboard.
 
 ("0xE4" "156"   ; My Pictures
  "0xBC" "213"   ; My Music
