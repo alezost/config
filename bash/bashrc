@@ -108,6 +108,15 @@ alias sc='sudo systemctl'
 alias scu='systemctl --user'
 alias gui='systemctl --user start gui@1.target'
 
+alias status='deco status'
+alias stop='deco stop'
+alias start='deco start'
+alias restart='deco restart'
+alias Status='sudo deco status'
+alias Stop='sudo deco stop'
+alias Start='sudo deco start'
+alias Restart='sudo deco restart'
+
 alias emq='emacs -nw -Q'
 
 ################################################################
