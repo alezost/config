@@ -80,6 +80,8 @@
     ((home-file ".lircrc")  "config/lirc/lircrc"))
    ("rtorrent"
     ((home-file ".rtorrent.rc") "config/rtorrent/rc"))
+   ("tvtime"
+    ((home-file ".tvtime") "config/tvtime"))
    ("mplayer"
     ((home-file ".mplayer") "config/mplayer"))
 

@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<!DOCTYPE tvtime PUBLIC "-//tvtime//DTD tvtime 1.0//EN" "http://tvtime.sourceforge.net/DTD/tvtime1.dtd">
+<tvtime xmlns="http://tvtime.sourceforge.net/DTD/">
+  <option name="Channel" value="8"/>
+  <option name="DefaultBrightness" value="-1"/>
+  <option name="DefaultContrast" value="-1"/>
+  <option name="DefaultSaturation" value="-1"/>
+  <option name="DefaultHue" value="-1"/>
+  <option name="PrevChannel" value="9"/>
+  <option name="FramerateMode" value="0"/>
+  <option name="OverScan" value="2.0"/>
+  <option name="CheckForSignal" value="0"/>
+  <option name="AudioBoost" value="-1"/>
+  <option name="AlwaysOnTop" value="0"/>
+  <option name="QuietScreenshots" value="0"/>
+  <option name="UnmuteVolume" value="-1"/>
+  <option name="Muted" value="0"/>
+  <option name="V4LInput" value="0"/>
+  <!-- <option name="V4LDevice" value="/dev/tv"/> -->
+  <option name="V4LDevice" value="/dev/video0"/>
+  <option name="AudioMode" value="mono"/>
+  <option name="PalDKMode" value="0"/>
+  <option name="NTSCCableMode" value="IRC"/>
+  <option name="Frequencies" value="russia"/>
+  <option name="Norm" value="SECAM"/>
+  <option name="FullScreen" value="0"/>
+  <option name="ColourInvert" value="0"/>
+  <option name="MirrorInput" value="0"/>
+  <option name="TimeFormat" value="%T"/>
+  <option name="XMLTVFile" value="~/.tvtime/xmltv.xml"/>
+  <option name="XMLTVLanguage" value="ru"/>
+  <bind command="toggle_fullscreen">
+    <keyboard key="Escape"/>
+  </bind>
+  <bind command="display_info">
+    <keyboard key=" "/>
+  </bind>
+  <bind command="channel_down">
+    <keyboard key="Left"/>
+  </bind>
+  <bind command="channel_up">
+    <keyboard key="Right"/>
+  </bind>
+  <bind command="channel_prev">
+    <keyboard key="r"/>
+  </bind>
+</tvtime>
