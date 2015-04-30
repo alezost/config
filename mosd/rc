@@ -1,8 +1,7 @@
 # -*- mode: conf-unix -*-
 
 #### String OSD ####
-setstr(f, -*-Liberation Mono-normal-normal-*-*-300-*-*-*-m-*-*-1)
-# setstr(f, -*-dejavu sans-bold-r-normal-*-*-300-*-*-p-*-*-1)
+setstr(f, -*-dejavu sans-bold-r-normal-*-*-300-*-*-p-*-*-1)
 setstr(c, yellow)
 # setstr(c, deep sky blue)
 setstr(s, 1)
@@ -13,20 +12,17 @@ setstr(p, 0)
 setstr(y, 20)
 
 #### Bar OSD ####
-# setstr(f, -*-dejavu sans-bold-r-normal-*-*-320-*-*-p-*-*-1)
-setbar(f, -*-ubuntu-bold-r-normal-*-*-320-*-*-p-*-*-1)
+setbar(f, -*-dejavu sans-bold-r-normal-*-*-320-*-*-p-*-*-1)
 setbar(p,2)
 setbar(s,2)
 setbar(a,1)
 
 #### Bars OSD ####
-# setstr(f, -*-dejavu sans-bold-r-normal-*-*-260-*-*-p-*-*-1)
-setbar1(f, -*-ubuntu-bold-r-normal-*-*-260-*-*-p-*-*-1)
+setbar1(f, -*-dejavu sans-bold-r-normal-*-*-260-*-*-p-*-*-1)
 setbar1(p,2)
 setbar1(s,2)
 setbar1(l,34)
-# setstr(f, -*-dejavu sans-bold-r-normal-*-*-260-*-*-p-*-*-1)
-setbar2(f, -*-ubuntu-bold-r-normal-*-*-260-*-*-p-*-*-1)
+setbar2(f, -*-dejavu sans-bold-r-normal-*-*-260-*-*-p-*-*-1)
 setbar2(p,2)
 setbar2(s,2)
 setbar2(l,34)
