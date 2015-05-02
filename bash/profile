@@ -1,3 +1,8 @@
 # -*- mode: sh -*-
 
 [[ -f ~/.bashrc ]] && . ~/.bashrc
+
+# Start dmd if it is not running.  Some daemons sometimes need DISPLAY
+# (for example, irexec needs it for starting tvtime)
+[[ -z $(pgrep -U $(id --user) dmd) ]] \
+    && DISPLAY=:0 dmd &>> $HOME/.dmd.d/dmd.log
