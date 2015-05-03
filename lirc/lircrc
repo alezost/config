@@ -230,6 +230,13 @@ begin tv
 
     begin
         prog = irexec
+        button = KEY_SCREEN
+        config = tvtime-command TOGGLE_ASPECT
+        flags = quit
+    end
+
+    begin
+        prog = irexec
         button = KEY_VOLUMEUP
         config = tvtime-command CHANNEL_UP
         flags = quit
