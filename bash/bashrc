@@ -82,6 +82,7 @@ alias se='SUDO_EDITOR=emacsclient sudoedit'
 alias ll='ls -AlFh --group-directories-first'
 alias l='ls -CAF --group-directories-first'
 alias j='jobs'
+alias p='pgrep -l'
 alias temperature='sudo hddtemp /dev/sd[ab]'
 alias pingg='ping -c3 google.com'
 
