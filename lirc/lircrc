@@ -20,7 +20,7 @@ begin main
         prog = irexec
         button = KEY_POWER
         mode = tv
-        config = mosdctl -s 'mode: tv' ; tvtime_sounded &
+        config = mosdctl -s 'mode: tv' ; tvtime-sounded &
         flags = quit
     end
     begin
