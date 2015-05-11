@@ -9,10 +9,6 @@
 export EDITOR='emacsclient'
 export VIEWER='emacsclient'
 
-# Settings for GPG 2.1.  See (info "(gnupg) Invoking GPG-AGENT").
-export GPG_TTY=$(tty)
-export SSH_AUTH_SOCK="${HOME}/.gnupg/S.gpg-agent.ssh"
-
 export MY_CONFIG_DIR="$HOME/config"
 export MY_PROGS_DIR="$HOME/progs"
 export MY_GUILE_DIR="$MY_PROGS_DIR/guile/modules"
@@ -20,6 +16,8 @@ export MY_GUILE_DIR="$MY_PROGS_DIR/guile/modules"
 export MY_GUIX_USER_PROFILE="$HOME/.guix-profile"
 export MY_GUIX_SYSTEM_PROFILE="/run/current-system/profile"
 export MY_GUIX_GUILE_DIR="$MY_GUIX_USER_PROFILE/share/guile/site/2.0"
+
+export SSH_AUTH_SOCK="${HOME}/.gnupg/S.gpg-agent.ssh"
 
 export GUILE_LOAD_PATH="$MY_GUILE_DIR:$MY_GUIX_GUILE_DIR:$HOME/src/guix-os:$HOME/src/dmd/modules"
 export GUILE_LOAD_COMPILED_PATH="$MY_GUIX_GUILE_DIR:$HOME/src/guix-os:$HOME/src/dmd/modules"
