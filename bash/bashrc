@@ -21,13 +21,13 @@ export MY_GUIX_USER_PROFILE="$HOME/.guix-profile"
 export MY_GUIX_SYSTEM_PROFILE="/run/current-system/profile"
 export MY_GUIX_GUILE_DIR="$MY_GUIX_USER_PROFILE/share/guile/site/2.0"
 
+export GUILE_LOAD_PATH="$MY_GUILE_DIR:$MY_GUIX_GUILE_DIR:$HOME/src/guix-os:$HOME/src/dmd/modules"
+export GUILE_LOAD_COMPILED_PATH="$MY_GUIX_GUILE_DIR:$HOME/src/guix-os:$HOME/src/dmd/modules"
+export GUIX_PACKAGE_PATH="$MY_CONFIG_DIR/guix/guix-package-path"
+export GUIX_BUILD_OPTIONS="--no-grub"
+
 if [ -d $MY_GUIX_SYSTEM_PROFILE ]; then
     export GIT_SSL_NO_VERIFY=1
-
-    export GUILE_LOAD_PATH="$MY_GUILE_DIR:$MY_GUIX_GUILE_DIR:$HOME/src/guix-os"
-    export GUILE_LOAD_COMPILED_PATH="$MY_GUIX_GUILE_DIR:$HOME/src/guix-os"
-    export GUIX_PACKAGE_PATH="$MY_CONFIG_DIR/guix/guix-package-path"
-    export GUIX_BUILD_OPTIONS="--no-grub"
 
     export PATH="$HOME/bin:${MY_GUIX_USER_PROFILE}/bin:${MY_GUIX_USER_PROFILE}/sbin:/run/setuid-programs:${MY_GUIX_SYSTEM_PROFILE}/bin:${MY_GUIX_SYSTEM_PROFILE}/sbin"
     export PKG_CONFIG_PATH="${MY_GUIX_USER_PROFILE}/lib/pkgconfig:${MY_GUIX_USER_PROFILE}/share/pkgconfig:${MY_GUIX_SYSTEM_PROFILE}/lib/pkgconfig:${MY_GUIX_SYSTEM_PROFILE}/share/pkgconfig"
