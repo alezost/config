@@ -6,9 +6,6 @@
 ################################################################
 ### Environment
 
-export EDITOR='emacsclient'
-export VIEWER='emacsclient'
-
 export MY_CONFIG_DIR="$HOME/config"
 export MY_PROGS_DIR="$HOME/progs"
 export MY_GUILE_DIR="$MY_PROGS_DIR/guile/modules"
@@ -24,7 +21,7 @@ export GUILE_LOAD_COMPILED_PATH="$MY_GUIX_GUILE_DIR:$HOME/src/guix-os:$HOME/src/
 export GUIX_PACKAGE_PATH="$MY_CONFIG_DIR/guix/guix-package-path"
 export GUIX_BUILD_OPTIONS="--no-grub"
 
-if [ -d $MY_GUIX_SYSTEM_PROFILE ]; then
+if [ -d $MY_GUIX_SYSTEM_PROFILE ]; then   # if it is GuixSD
     export GIT_SSL_NO_VERIFY=1
 
     export PATH="$HOME/bin:${MY_GUIX_USER_PROFILE}/bin:${MY_GUIX_USER_PROFILE}/sbin:/run/setuid-programs:${MY_GUIX_SYSTEM_PROFILE}/bin:${MY_GUIX_SYSTEM_PROFILE}/sbin"
@@ -38,10 +35,13 @@ if [ -d $MY_GUIX_SYSTEM_PROFILE ]; then
     export EMACSLOADPATH=
 fi
 
+export EDITOR='emacsclient'
+export VIEWER='emacsclient'
+
 ################################################################
 ### History
 
-# Do not put duplicates lines in the history.
+# Do not put duplicate lines in the history.
 HISTCONTROL=erasedups:ignorespace
 HISTSIZE=1000
 HISTTIMEFORMAT='%Y-%m-%d %H:%M  '
