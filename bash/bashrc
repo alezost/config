@@ -109,7 +109,6 @@ alias hyp-suspend='ssh root@hyperion "systemctl start systemd-suspend"'
 
 alias sc='sudo systemctl'
 alias scu='systemctl --user'
-alias gui='systemctl --user start gui@1.target'
 
 alias Deco='sudo /run/current-system/profile/bin/deco'
 alias status='deco status'
