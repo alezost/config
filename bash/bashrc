@@ -34,6 +34,10 @@ if [ -d $MY_GUIX_SYSTEM_PROFILE ]; then
     export ACLOCAL_PATH="${MY_GUIX_USER_PROFILE}/share/aclocal:${MY_GUIX_SYSTEM_PROFILE}/share/aclocal"
     export CPATH="${MY_GUIX_USER_PROFILE}/include:${MY_GUIX_SYSTEM_PROFILE}/include"
     export LIBRARY_PATH="${MY_GUIX_USER_PROFILE}/lib:${MY_GUIX_SYSTEM_PROFILE}/lib"
+
+    # Ignore "site-start.el" defined by EMACSLOADPATH because it loads
+    # "geiser-guile".
+    export EMACSLOADPATH=
 fi
 
 ################################################################
