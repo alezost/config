@@ -1,5 +1,46 @@
 # -*- mode: sh -*-
 
+################################################################
+### Environment
+
+export MY_CONFIG_DIR="$HOME/config"
+export MY_PROGS_DIR="$HOME/progs"
+export MY_GUILE_DIR="$MY_PROGS_DIR/guile/modules"
+
+export MY_GUIX_USER_PROFILE="$HOME/.guix-profile"
+export MY_GUIX_SYSTEM_PROFILE="/run/current-system/profile"
+export MY_GUIX_GUILE_DIR="$MY_GUIX_USER_PROFILE/share/guile/site"
+
+export SSH_AUTH_SOCK="${HOME}/.gnupg/S.gpg-agent.ssh"
+
+export GUILE_LOAD_PATH="$MY_GUILE_DIR:$MY_GUIX_GUILE_DIR:$MY_GUIX_GUILE_DIR/2.0:$HOME/devel/guix:$HOME/devel/dmd/modules"
+export GUILE_LOAD_COMPILED_PATH="$MY_GUIX_GUILE_DIR:$MY_GUIX_GUILE_DIR/2.0:$HOME/devel/guix:$HOME/devel/dmd/modules"
+export GUIX_PACKAGE_PATH="$MY_CONFIG_DIR/guix/guix-package-path"
+
+set_paths_for_guix_profile () {
+    profile="$1"
+    export PATH="${profile}/bin:${profile}/sbin:${MY_GUIX_SYSTEM_PROFILE}/bin:${MY_GUIX_SYSTEM_PROFILE}/sbin"
+    export PKG_CONFIG_PATH="${profile}/lib/pkgconfig:${profile}/share/pkgconfig:${MY_GUIX_SYSTEM_PROFILE}/lib/pkgconfig:${MY_GUIX_SYSTEM_PROFILE}/share/pkgconfig"
+    export ACLOCAL_PATH="${profile}/share/aclocal:${MY_GUIX_SYSTEM_PROFILE}/share/aclocal"
+    export CPATH="${profile}/include:${MY_GUIX_SYSTEM_PROFILE}/include"
+    export LIBRARY_PATH="${profile}/lib:${MY_GUIX_SYSTEM_PROFILE}/lib"
+}
+
+if [ -d $MY_GUIX_SYSTEM_PROFILE ]; then   # if it is GuixSD
+    set_paths_for_guix_profile "$MY_GUIX_USER_PROFILE"
+
+    export PATH="$HOME/bin:/run/setuid-programs:$PATH"
+    export GIT_SSL_NO_VERIFY=1
+    # Ignore EMACSLOADPATH defined by "site-start.el" because it loads
+    # "geiser-guile".
+    export EMACSLOADPATH=
+fi
+
+export EDITOR='emacsclient'
+export VIEWER='emacsclient'
+
+################################################################
+
 [[ -f ~/.bashrc ]] && . ~/.bashrc
 
 # Start dmd if it is not running.  Some daemons sometimes need DISPLAY
