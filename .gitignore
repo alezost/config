@@ -2,11 +2,11 @@
 /conkeror
 /dmd
 /emacs
+/etc/sudoers
 /gpg/*
 !/gpg/gpg-agent.conf
 /guix
 /rtorrent/session
 /ssh
 /stumpwm
-/sudo
 /tvtime/tvguide
