@@ -89,6 +89,8 @@
     ((home-file ".config/mpv") "../config/mpv"))
    ("openbox"
     ((home-file ".config/openbox") "../config/openbox"))
+   ("zathura"
+    ((home-file ".config/zathura") "../config/zathura"))
 
    ("X"
     ((home-file ".Xmodmap")    "config/X/Xmodmap")

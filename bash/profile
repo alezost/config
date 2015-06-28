@@ -24,6 +24,7 @@ set_paths_for_guix_profile () {
     export ACLOCAL_PATH="${profile}/share/aclocal:${MY_GUIX_SYSTEM_PROFILE}/share/aclocal"
     export CPATH="${profile}/include:${MY_GUIX_SYSTEM_PROFILE}/include"
     export LIBRARY_PATH="${profile}/lib:${MY_GUIX_SYSTEM_PROFILE}/lib"
+    export ZATHURA_PLUGIN_PATH="${profile}/lib/zathura"
 }
 
 if [ -d $MY_GUIX_SYSTEM_PROFILE ]; then   # if it is GuixSD

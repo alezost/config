@@ -1,0 +1,54 @@
+set font "liberation mono 12"
+
+# # dark
+# set default-bg "#4f4f4f"
+# set default-fg "#d5d2be"
+# set inputbar-bg "#3f3f3f"
+# set inputbar-fg "#d5d2be"
+# set statusbar-bg "#2b2b2b"
+# set statusbar-fg "#d5d2be"
+# set recolor-lightcolor "#3f3f3f"
+# set recolor-darkcolor "#d5d2be"
+
+# light
+set default-bg "#d2c9b0"
+set default-fg "#262626"
+set inputbar-bg "#ded6c5"
+set inputbar-fg "#262626"
+set statusbar-bg "#f6f0e1"
+set statusbar-fg "#262626"
+set recolor-lightcolor "#ded6c5"
+set recolor-darkcolor "#262626"
+
+set recolor "true"
+# set recolor-keephue "true"
+
+map <C-.> scroll up
+map <C-e> scroll down
+map <C-o> scroll left
+map <C-u> scroll right
+map . scroll half-up
+map e scroll half-down
+map > scroll page-top
+map E scroll page-bottom
+map <A-.> scroll full-up
+map <A-e> scroll full-down
+map <PageUp> scroll half-up
+map <PageDown> scroll half-down
+map <BackSpace> navigate previous
+map h navigate previous
+map <Space> navigate next
+map n navigate next
+
+map b adjust_window best-fit
+map w adjust_window width
+map p rotate rotate-ccw
+map <Left> rotate rotate-ccw
+map , rotate rotate-cw
+map <Right> rotate rotate-cw
+
+map <A-g> goto
+map g reload
+map c recolor
+map u follow
+map i toggle_index
