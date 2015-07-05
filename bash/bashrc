@@ -25,6 +25,10 @@ shopt -s histappend
 PS1='\[\033[32m\]\A \[\033[0m\]\u\[\033[35m\]@\[\033[0m\]\h \[\033[40;1;33m\]\j\[\033[0;0;36m\] \! \[\033[1;34m\]\w\[\033[1;37m\]\n\[\033[0;1;31m\]\$\[\033[0m\] '
 PS2='\[\e[34m\]\#>\[\e[0m\] '
 
+if [ -n "$GUIX_ENVIRONMENT" ]; then
+    PS1="\[\033[31m\][guix env] $PS1"
+fi
+
 case "$TERM" in
     xterm*|rxvt*)
         PS1="\[\e]0;\W\a\]$PS1"
