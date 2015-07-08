@@ -91,6 +91,7 @@ alias Stop='Deco stop'
 alias Start='Deco start'
 alias Restart='Deco restart'
 
+alias e='emacs &'
 alias emq='emacs -nw -Q'
 alias gc='guile-compile'
 
