@@ -89,6 +89,8 @@
     ((home-file ".config/mpv") "../config/mpv"))
    ("openbox"
     ((home-file ".config/openbox") "../config/openbox"))
+   ("dunst"
+    ((home-file ".config/dunst") "../config/dunst"))
    ("zathura"
     ((home-file ".config/zathura") "../config/zathura"))
 
