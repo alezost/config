@@ -25,6 +25,7 @@ set_paths_for_guix_profile () {
     export CPATH="${profile}/include:${MY_GUIX_SYSTEM_PROFILE}/include"
     export LIBRARY_PATH="${profile}/lib:${MY_GUIX_SYSTEM_PROFILE}/lib"
     export ZATHURA_PLUGIN_PATH="${profile}/lib/zathura"
+    export PYTHONPATH="${profile}/lib/python3.4/site-packages"
 }
 
 if [ -d $MY_GUIX_SYSTEM_PROFILE ]; then   # if it is GuixSD
