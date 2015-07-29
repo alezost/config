@@ -1,0 +1,11 @@
+-*- mode: org; -*-
+
+[[file:zathurarc]] includes =theme= file (git-ignored) which is just a
+symlink to [[file:dark-theme][file:light-theme]] or [[file:dark-theme][file:dark-theme]].  This =theme= file may
+be easily "re-linked", for example by a shell script, so I can switch
+between the dark and the light themes without modifying zathura config.
+
+Actually since I start Zathura only from Emacs, instead of a shell
+script I use some elisp code to synchronize my zathura theme with the
+current emacs theme before Zathura is started.  The relevant code is
+placed [[https://gitlab.com/alezost-emacs/config/blob/master/settings.el][here]] (search for "zathura" there) and [[https://gitlab.com/alezost-emacs/utils/blob/master/utl-process.el][here]].

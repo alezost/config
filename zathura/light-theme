@@ -1,0 +1,13 @@
+# -*- mode: conf-space -*-
+
+# Light theme made in the manner of 'alect-light':
+# <https://github.com/alezost/alect-themes>.
+
+set default-bg "#d2c9b0"
+set default-fg "#262626"
+set inputbar-bg "#ded6c5"
+set inputbar-fg "#262626"
+set statusbar-bg "#f6f0e1"
+set statusbar-fg "#262626"
+set recolor-lightcolor "#ded6c5"
+set recolor-darkcolor "#262626"
