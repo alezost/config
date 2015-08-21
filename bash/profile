@@ -41,6 +41,9 @@ fi
 export EDITOR='emacsclient'
 export VIEWER='emacsclient'
 
+# Prevent sox from using pulseaudio.
+export AUDIODRIVER=alsa
+
 ################################################################
 
 [[ -f ~/.bashrc ]] && . ~/.bashrc
