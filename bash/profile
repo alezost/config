@@ -9,12 +9,9 @@ export MY_GUILE_DIR="$MY_PROGS_DIR/guile/modules"
 
 export MY_GUIX_USER_PROFILE="$HOME/.guix-profile"
 export MY_GUIX_SYSTEM_PROFILE="/run/current-system/profile"
-export MY_GUIX_GUILE_DIR="$MY_GUIX_USER_PROFILE/share/guile/site"
 
 export SSH_AUTH_SOCK="${HOME}/.gnupg/S.gpg-agent.ssh"
 
-export GUILE_LOAD_PATH="$MY_GUILE_DIR:$MY_GUIX_GUILE_DIR:$MY_GUIX_GUILE_DIR/2.0:$HOME/devel/guix:$HOME/devel/dmd/modules"
-export GUILE_LOAD_COMPILED_PATH="$MY_GUIX_GUILE_DIR:$MY_GUIX_GUILE_DIR/2.0:$HOME/devel/guix:$HOME/devel/dmd/modules"
 export GUIX_PACKAGE_PATH="$MY_CONFIG_DIR/guix/guix-package-path"
 
 set_paths_for_guix_profile () {
@@ -26,6 +23,8 @@ set_paths_for_guix_profile () {
     export LIBRARY_PATH="${profile}/lib:${MY_GUIX_SYSTEM_PROFILE}/lib"
     export ZATHURA_PLUGIN_PATH="${profile}/lib/zathura"
     export PYTHONPATH="${profile}/lib/python3.4/site-packages"
+
+    export GUILE_LOAD_PATH="${profile}/share/guile/site/2.0:${profile}/share/guile/site"
 }
 
 if [ -d $MY_GUIX_SYSTEM_PROFILE ]; then   # if it is GuixSD
@@ -33,10 +32,13 @@ if [ -d $MY_GUIX_SYSTEM_PROFILE ]; then   # if it is GuixSD
 
     export PATH="$HOME/bin:/run/setuid-programs:$PATH"
     export GIT_SSL_NO_VERIFY=1
-    # Ignore EMACSLOADPATH defined by "site-start.el" because it loads
-    # "geiser-guile".
+    # Ignore EMACSLOADPATH defined by "/etc/profile" because I know
+    # better what I want to load.
     export EMACSLOADPATH=
 fi
+
+export GUILE_LOAD_PATH="$MY_GUILE_DIR:$HOME/devel/guix:$HOME/devel/dmd/modules:$GUILE_LOAD_PATH"
+export GUILE_LOAD_COMPILED_PATH=$GUILE_LOAD_PATH
 
 export EDITOR='emacsclient'
 export VIEWER='emacsclient'
