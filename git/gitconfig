@@ -1,4 +1,4 @@
-# -*- mode: conf-unix -*-
+# -*- mode: gitconfig -*-
 
 [user]
 	name = Alex Kost
