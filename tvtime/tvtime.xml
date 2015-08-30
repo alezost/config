@@ -35,6 +35,9 @@
   <bind command="display_info">
     <keyboard key=" "/>
   </bind>
+  <bind command="display_info">
+    <keyboard key="o"/>
+  </bind>
   <bind command="channel_down">
     <keyboard key="Left"/>
   </bind>
