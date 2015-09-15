@@ -77,7 +77,9 @@
    ("git"
     ((home-file ".gitconfig") "config/git/gitconfig"))
    ("lirc"
-    ((home-file ".lircrc")  "config/lirc/lircrc"))
+    ((home-file ".lircrc") "config/lirc/lircrc"))
+   ("mime"
+    ((home-file ".mime.types") "config/mime/mime.types"))
    ("rtorrent"
     ((home-file ".rtorrent.rc") "config/rtorrent/rc"))
    ("tvtime"
