@@ -9,6 +9,7 @@
 	smtpUser = alezost@gmail.com
 	smtpServerPort = 587
 	assume8bitEncoding = UTF-8
+	suppresscc = self
 [credential]
 	helper = cache --timeout=86400
 [rebase]
