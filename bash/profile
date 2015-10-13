@@ -6,6 +6,7 @@
 export MY_CONFIG_DIR="$HOME/config"
 export MY_PROGS_DIR="$HOME/progs"
 export MY_GUILE_DIR="$MY_PROGS_DIR/guile/modules"
+export MY_GUILE_GUIX_DIR="$MY_CONFIG_DIR/guix/modules"
 
 export MY_GUIX_USER_PROFILE="$HOME/.guix-profile"
 export MY_GUIX_SYSTEM_PROFILE="/run/current-system/profile"
@@ -37,7 +38,7 @@ if [ -d $MY_GUIX_SYSTEM_PROFILE ]; then   # if it is GuixSD
     export EMACSLOADPATH=
 fi
 
-export GUILE_LOAD_PATH="$MY_GUILE_DIR:$HOME/devel/guix:$HOME/devel/dmd/modules:$GUILE_LOAD_PATH"
+export GUILE_LOAD_PATH="$MY_GUILE_DIR:$MY_GUILE_GUIX_DIR:$HOME/devel/guix:$HOME/devel/dmd/modules:$GUILE_LOAD_PATH"
 export GUILE_LOAD_COMPILED_PATH=$GUILE_LOAD_PATH
 
 export EDITOR='emacsclient'
