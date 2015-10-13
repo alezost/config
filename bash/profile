@@ -45,6 +45,9 @@ export VIEWER='emacsclient'
 
 # Prevent sox from using pulseaudio.
 export AUDIODRIVER=alsa
+# Without this, there is no sound in programs (usually games) that use
+# sdl-mixer (at least on GuixSD).
+export SDL_AUDIODRIVER=alsa
 
 ################################################################
 
