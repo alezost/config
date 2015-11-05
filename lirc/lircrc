@@ -170,6 +170,27 @@ begin main
         flags = quit
     end
 
+    # Volume control
+    begin
+        prog = irexec
+        button = KEY_MUTE
+        # config = amixer -q set Master toggle
+        config = setaudio -sq Master toggle
+    end
+    begin
+        prog = irexec
+        button = KEY_CHANNELUP
+        repeat = 1
+        # config = amixer -q set Master 2%+
+        config = setaudio -sq Master 1+
+    end
+    begin
+        prog = irexec
+        button = KEY_CHANNELDOWN
+        repeat = 1
+        # config = amixer -q set Master 2%-
+        config = setaudio -sq Master 1-
+    end
 end main
 
 ######## MOUSE MODE ############################################
@@ -321,6 +342,25 @@ begin tv
         config = tvtime-command CHANNEL_PREV
         flags = quit
     end
+
+    # Volume control
+    begin
+        prog = irexec
+        button = KEY_MUTE
+        config = setaudio -sq Line toggle
+    end
+    begin
+        prog = irexec
+        button = KEY_CHANNELUP
+        repeat = 1
+        config = setaudio -sq Line 1+
+    end
+    begin
+        prog = irexec
+        button = KEY_CHANNELDOWN
+        repeat = 1
+        config = setaudio -sq Line 1-
+    end
 end tv
 
 ######## GLOBAL KEYS ###########################################
@@ -366,47 +406,4 @@ begin
     button = KEY_TUNER
     config = xdotool key Escape
     flags = quit
-end
-
-# VOLUME KEYS
-begin
-    prog = irexec
-    button = KEY_GREEN
-    button = KEY_MUTE
-    config = setaudio -sq Line toggle
-    flags = quit
-end
-begin
-    prog = irexec
-    button = KEY_GREEN
-    button = KEY_CHANNELUP
-    config = setaudio -sq Line 5+
-    flags = quit
-end
-begin
-    prog = irexec
-    button = KEY_GREEN
-    button = KEY_CHANNELDOWN
-    config = setaudio -sq Line 5-
-    flags = quit
-end
-begin
-    prog = irexec
-    button = KEY_MUTE
-    # config = amixer -q set Master toggle
-    config = setaudio -sq Master toggle
-end
-begin
-    prog = irexec
-    button = KEY_CHANNELUP
-    repeat = 1
-    # config = amixer -q set Master 2%+
-    config = setaudio -sq Master 1+
-end
-begin
-    prog = irexec
-    button = KEY_CHANNELDOWN
-    repeat = 1
-    # config = amixer -q set Master 2%-
-    config = setaudio -sq Master 1-
 end
