@@ -3,40 +3,74 @@
 ################################################################
 ### Environment
 
+MY_GUIX_PROFILE_NAMES="emacs games build main"
+
 export MY_CONFIG_DIR="$HOME/config"
+export MY_CONFIG_GUIX_DIR="$MY_CONFIG_DIR/guix"
 export MY_PROGS_DIR="$HOME/progs"
 export MY_GUILE_DIR="$MY_PROGS_DIR/guile/modules"
-export MY_GUILE_GUIX_DIR="$MY_CONFIG_DIR/guix/modules"
+export MY_GUILE_GUIX_DIR="$MY_CONFIG_GUIX_DIR/modules"
 
-export MY_GUIX_USER_PROFILE="$HOME/.guix-profile"
-export MY_GUIX_SYSTEM_PROFILE="/run/current-system/profile"
+export MY_GUIX_PROFILES_DIR="$HOME/.guix-profiles"
+export MY_GUIX_USER_PROFILE_DIR="$MY_GUIX_PROFILES_DIR/main/main"
+export MY_GUIX_SYSTEM_PROFILE_DIR="/run/current-system/profile"
 
-export SSH_AUTH_SOCK="${HOME}/.gnupg/S.gpg-agent.ssh"
-
-export GUIX_PACKAGE_PATH="$MY_CONFIG_DIR/guix/guix-package-path"
-
-set_paths_for_guix_profile () {
-    profile="$1"
-    export PATH="${profile}/bin:${profile}/sbin:${MY_GUIX_SYSTEM_PROFILE}/bin:${MY_GUIX_SYSTEM_PROFILE}/sbin"
-    export PKG_CONFIG_PATH="${profile}/lib/pkgconfig:${profile}/share/pkgconfig:${MY_GUIX_SYSTEM_PROFILE}/lib/pkgconfig:${MY_GUIX_SYSTEM_PROFILE}/share/pkgconfig"
-    export ACLOCAL_PATH="${profile}/share/aclocal:${MY_GUIX_SYSTEM_PROFILE}/share/aclocal"
-    export CPATH="${profile}/include:${MY_GUIX_SYSTEM_PROFILE}/include"
-    export LIBRARY_PATH="${profile}/lib:${MY_GUIX_SYSTEM_PROFILE}/lib"
-    export ZATHURA_PLUGIN_PATH="${profile}/lib/zathura"
-    export PYTHONPATH="${profile}/lib/python3.4/site-packages"
-
-    export GUILE_LOAD_PATH="${profile}/share/guile/site/2.0:${profile}/share/guile/site"
+add_dir_to_var_if_exists () {
+    # Add directory $1 (if it exists) to environment variable $2.
+    [ -d "$1" ] && eval $(echo "$2=$1:\$$2")
 }
 
-if [ -d $MY_GUIX_SYSTEM_PROFILE ]; then   # if it is GuixSD
-    set_paths_for_guix_profile "$MY_GUIX_USER_PROFILE"
+display_file_if_exists () {
+    [ -a "$1" ] && echo "$1"
+}
 
-    export PATH="$HOME/bin:/run/setuid-programs:$PATH"
+display_guix_profiles_paths () {
+    display_file_if_exists "$MY_GUIX_SYSTEM_PROFILE_DIR"
+    for name in $MY_GUIX_PROFILE_NAMES
+    do
+        display_file_if_exists "$MY_GUIX_PROFILES_DIR/$name/$name"
+    done
+}
+
+display_guix_env () {
+    env_cmd="guix package --search-paths"
+    for path in $(display_guix_profiles_paths)
+    do
+        env_cmd="$env_cmd --profile='$path'"
+        add_dir_to_var_if_exists "$path/share" xdg_data_dirs
+        add_dir_to_var_if_exists "$path/etc/xdg" xdg_config_dirs
+    done
+    eval $(echo $env_cmd)
+    echo "export XDG_DATA_DIRS=$xdg_data_dirs"
+    echo "export XDG_CONFIG_DIRS=$xdg_config_dirs"
+}
+
+# Calculate environment for all Guix profiles.
+eval $(display_guix_env)
+
+if [ -d $MY_GUIX_SYSTEM_PROFILE_DIR ]; then   # if it is GuixSD
+    export PATH="/run/setuid-programs:$PATH"
     export GIT_SSL_NO_VERIFY=1
+
     # Ignore EMACSLOADPATH defined by "/etc/profile" because I know
     # better what I want to load.
     export EMACSLOADPATH=
 fi
+
+if [ -d $MY_GUIX_USER_PROFILE_DIR ]; then
+    # Without this, other git outputs (like 'send-email') wouldn't work.
+    export GIT_EXEC_PATH="$MY_GUIX_USER_PROFILE_DIR/libexec/git-core"
+
+    aspell_dir="$MY_GUIX_USER_PROFILE_DIR/lib/aspell"
+    if [ -d $aspell_dir ]; then
+        # export ASPELL_CONF="data-dir $aspell_dir; dict-dir $aspell_dir"
+        export ASPELL_CONF="dict-dir $aspell_dir"
+    fi
+fi
+
+export PATH="$HOME/bin:$PATH"
+export SSH_AUTH_SOCK="$HOME/.gnupg/S.gpg-agent.ssh"
+export GUIX_PACKAGE_PATH="$MY_CONFIG_GUIX_DIR/guix-package-path"
 
 export GUILE_LOAD_PATH="$MY_GUILE_DIR:$MY_GUILE_GUIX_DIR:$HOME/devel/guix:$HOME/devel/dmd/modules:$GUILE_LOAD_PATH"
 export GUILE_LOAD_COMPILED_PATH=$GUILE_LOAD_PATH
