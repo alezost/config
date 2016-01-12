@@ -9,10 +9,10 @@
     <station name="&#x41F;&#x44F;&#x442;&#x44B;&#x439;" active="1" position="5" band="UHF" channel="U59" finetune="0" norm="SECAM" audio="auto" xmltvid="255"/>
     <station name="&#x422;&#x412;&#x426;" active="1" position="6" band="UHF" channel="U44" finetune="0" norm="SECAM" audio="auto" xmltvid="3"/>
     <station name="Disney" active="1" position="7" band="UHF" channel="U41" finetune="0" norm="SECAM" audio="auto" xmltvid="100055"/>
-    <station name="&#x420;&#x43E;&#x441;&#x441;&#x438;&#x44F; 2" active="1" position="8" band="UHF" channel="U21" finetune="0" norm="SECAM" audio="auto" xmltvid="235" brightness="50" contrast="50" saturation="50" hue="50"/>
+    <station name="&#x41C;&#x430;&#x442;&#x447; &#x422;&#x412;" active="1" position="8" band="UHF" channel="U34" finetune="0" norm="SECAM" audio="auto" xmltvid="2060" brightness="50" contrast="50" saturation="50" hue="50"/>
     <station name="&#x420;&#x43E;&#x441;&#x441;&#x438;&#x44F; &#x41A;&#x443;&#x43B;&#x44C;&#x442;&#x443;&#x440;&#x430;" active="1" position="9" band="UHF" channel="U29" finetune="0" norm="SECAM" audio="auto" xmltvid="5"/>
     <station name="&#x414;&#x43E;&#x43C;&#x430;&#x448;&#x43D;&#x438;&#x439;" active="1" position="10" band="UHF" channel="U39" finetune="0" norm="PAL" audio="auto" xmltvid="102"/>
-    <station name="&#x41F;&#x435;&#x440;&#x435;&#x446;" active="1" position="11" band="UHF" channel="U47" finetune="0" norm="SECAM" audio="auto" xmltvid="109"/>
+    <station name="&#x427;&#x435;" active="1" position="11" band="UHF" channel="U47" finetune="0" norm="SECAM" audio="auto" xmltvid="2068"/>
     <station name="&#x417;&#x432;&#x435;&#x437;&#x434;&#x430;" active="1" position="12" band="UHF" channel="U50" finetune="0" norm="SECAM" audio="auto"/>
   </list>
 </stationlist>
