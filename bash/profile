@@ -3,7 +3,7 @@
 ################################################################
 ### Environment
 
-MY_GUIX_PROFILE_NAMES="emacs games build main"
+MY_GUIX_PROFILE_NAMES="emacs games build misc main"
 
 export MY_CONFIG_DIR="$HOME/config"
 export MY_CONFIG_GUIX_DIR="$MY_CONFIG_DIR/guix"
