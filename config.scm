@@ -61,8 +61,9 @@
     ((home-file ".emacs.d/init.el") "../config/emacs/config/init.el"))
    ("stumpwm"
     ((home-file ".stumpwmrc") "config/stumpwm/init.lisp"))
-   ("dmd"
-    ((home-file ".dmd.d/init.scm") "../config/dmd/init.scm"))
+   ("shepherd"
+    ((home-file ".config/shepherd/init.scm")
+     "../../config/shepherd/init.scm"))
 
    ("ssh"
     ((home-file ".ssh") "config/ssh"))

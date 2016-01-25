@@ -72,7 +72,7 @@ export PATH="$HOME/bin:$PATH"
 export SSH_AUTH_SOCK="$HOME/.gnupg/S.gpg-agent.ssh"
 export GUIX_PACKAGE_PATH="$MY_CONFIG_GUIX_DIR/guix-package-path"
 
-export GUILE_LOAD_PATH="$MY_GUILE_DIR:$MY_GUILE_GUIX_DIR:$HOME/devel/guix:$HOME/devel/dmd/modules:$GUILE_LOAD_PATH"
+export GUILE_LOAD_PATH="$MY_GUILE_DIR:$MY_GUILE_GUIX_DIR:$HOME/devel/guix:$HOME/devel/shepherd/modules:$GUILE_LOAD_PATH"
 export GUILE_LOAD_COMPILED_PATH=$GUILE_LOAD_PATH
 
 export EDITOR='emacsclient'
@@ -88,7 +88,7 @@ export SDL_AUDIODRIVER=alsa
 
 [[ -f ~/.bashrc ]] && . ~/.bashrc
 
-# Start dmd if it is not running.  Some daemons sometimes need DISPLAY
-# (for example, irexec needs it for starting tvtime)
-[[ -z $(pgrep -U $(id --user) dmd) ]] \
-    && DISPLAY=:0 dmd &>> $HOME/.dmd.d/dmd.log
+# Start shepherd if it is not running.  Some daemons sometimes need
+# DISPLAY (for example, irexec needs it for starting tvtime)
+[[ -z $(pgrep -U $(id --user) shepherd) ]] \
+    && DISPLAY=:0 shepherd &>> $HOME/.config/shepherd/shepherd.log

@@ -1,12 +1,12 @@
 /auth
 /conkeror
-/dmd
 /emacs
 /etc/sudoers
 /gpg/*
 !/gpg/gpg-agent.conf
 /guix
 /rtorrent/session
+/shepherd
 /ssh
 /stumpwm
 /tvtime/tvguide
