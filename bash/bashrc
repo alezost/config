@@ -91,7 +91,7 @@ alias Stop='Herd stop'
 alias Start='Herd start'
 alias Restart='Herd restart'
 
-alias e='emacs &'
+alias e='emacs --no-site-file &'
 alias eq='emacs -nw -Q'
 alias gc='guile-compile'
 
