@@ -54,7 +54,9 @@
   (make-configs
    ("config"
     ((bin-file "config") "../config/config.scm"))
-
+   ("guix"
+    ((bin-file "profile") (guix-script-file "profile.scm"))
+    ((bin-file "system") (guix-script-file "system.scm")))
    ("conkeror"
     ((home-file ".conkerorrc") "config/conkeror/init.js"))
    ("emacs"
