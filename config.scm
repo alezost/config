@@ -3,7 +3,7 @@
 !#
 ;;; config.scm --- Deploy config files
 
-;; Copyright © 2015 Alex Kost
+;; Copyright © 2015, 2016 Alex Kost
 
 ;; Author: Alex Kost <alezost@gmail.com>
 ;; Created:  3 Mar 2015
@@ -53,7 +53,7 @@
 (define %configs
   (make-configs
    ("config"
-    ((home-file "bin/config") "../config/config.scm"))
+    ((bin-file "config") "../config/config.scm"))
 
    ("conkeror"
     ((home-file ".conkerorrc") "config/conkeror/init.js"))
