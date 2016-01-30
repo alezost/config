@@ -45,69 +45,114 @@
 
 ;;; Configs
 
-(define-syntax-rule (make-configs (config-name (filename target) ...) ...)
-  (list (make-config config-name
-                     (list (make-link filename target) ...))
-        ...))
-
 (define %configs
-  (make-configs
-   ("config"
-    ((bin-file "config") (config-file "config.scm")))
-   ("guix"
-    ((bin-file "profile") (guix-script-file "profile.scm"))
-    ((bin-file "system") (guix-script-file "system.scm")))
-   ("conkeror"
-    ((home-file ".conkerorrc") (config-file "conkeror/init.js")))
-   ("emacs"
-    ((home-file ".emacs.d/init.el") (config-file "emacs/config/init.el")))
-   ("stumpwm"
-    ((home-file ".stumpwmrc") (config-file "stumpwm/init.lisp")))
-   ("shepherd"
-    ((home-file ".config/shepherd/init.scm")
-     (config-file "shepherd/init.scm")))
+  (list
+   (config* #:name "config"
+            #:links (list
+                     (link* #:filename (bin-file "config")
+                            #:target (config-file "config.scm"))))
+   (config* #:name "guix"
+            #:links (list
+                     (link* #:filename (bin-file "profile")
+                            #:target (guix-script-file "profile.scm"))
+                     (link* #:filename (bin-file "system")
+                            #:target (guix-script-file "system.scm"))))
+   (config* #:name "shepherd"
+            #:links (list
+                     (link* #:filename (home-file ".config/shepherd/init.scm")
+                            #:target (config-file "shepherd/init.scm"))))
+   (config* #:name "emacs"
+            #:links (list
+                     (link* #:filename (home-file ".emacs.d/init.el")
+                            #:target (config-file "emacs/config/init.el"))))
+   (config* #:name "stumpwm"
+            #:links (list
+                     (link* #:filename (home-file ".stumpwmrc")
+                            #:target (config-file "stumpwm/init.lisp"))))
+   (config* #:name "conkeror"
+            #:links (list
+                     (link* #:filename (home-file ".conkerorrc")
+                            #:target (config-file "conkeror/init.js"))))
 
-   ("ssh"
-    ((home-file ".ssh") (config-file "ssh")))
-   ("gpg"
-    ((home-file ".gnupg") (config-file "gpg")))
-   ("auth"
-    ((home-file ".authinfo.gpg") (config-file "auth/authinfo.gpg")))
-   ("top"
-    ((home-file ".toprc") (config-file "top/toprc")))
-   ("sbcl"
-    ((home-file ".sbclrc") (config-file "sbcl/sbclrc")))
-   ("git"
-    ((home-file ".gitconfig") (config-file "git/gitconfig")))
-   ("lirc"
-    ((home-file ".lircrc") (config-file "lirc/lircrc")))
-   ("mime"
-    ((home-file ".mime.types") (config-file "mime/mime.types")))
-   ("rtorrent"
-    ((home-file ".rtorrent.rc") (config-file "rtorrent/rc")))
-   ("tvtime"
-    ((home-file ".tvtime") (config-file "tvtime")))
-   ("mplayer"
-    ((home-file ".mplayer") (config-file "mplayer")))
+   (config* #:name "ssh"
+            #:links (list
+                     (link* #:filename (home-file ".ssh")
+                            #:target (config-file "ssh"))))
+   (config* #:name "gpg"
+            #:links (list
+                     (link* #:filename (home-file ".gnupg")
+                            #:target (config-file "gpg"))))
+   (config* #:name "auth"
+            #:links (list
+                     (link* #:filename (home-file ".authinfo.gpg")
+                            #:target (config-file "auth/authinfo.gpg"))))
+   (config* #:name "top"
+            #:links (list
+                     (link* #:filename (home-file ".toprc")
+                            #:target (config-file "top/toprc"))))
+   (config* #:name "sbcl"
+            #:links (list
+                     (link* #:filename (home-file ".sbclrc")
+                            #:target (config-file "sbcl/sbclrc"))))
+   (config* #:name "git"
+            #:links (list
+                     (link* #:filename (home-file ".gitconfig")
+                            #:target (config-file "git/gitconfig"))))
+   (config* #:name "lirc"
+            #:links (list
+                     (link* #:filename (home-file ".lircrc")
+                            #:target (config-file "lirc/lircrc"))))
+   (config* #:name "mime"
+            #:links (list
+                     (link* #:filename (home-file ".mime.types")
+                            #:target (config-file "mime/mime.types"))))
+   (config* #:name "rtorrent"
+            #:links (list
+                     (link* #:filename (home-file ".rtorrent.rc")
+                            #:target (config-file "rtorrent/rc"))))
+   (config* #:name "tvtime"
+            #:links (list
+                     (link* #:filename (home-file ".tvtime")
+                            #:target (config-file "tvtime"))))
+   (config* #:name "mplayer"
+            #:links (list
+                     (link* #:filename (home-file ".mplayer")
+                            #:target (config-file "mplayer"))))
 
-   ("mpv"
-    ((home-file ".config/mpv") (config-file "mpv")))
-   ("openbox"
-    ((home-file ".config/openbox") (config-file "openbox")))
-   ("dunst"
-    ((home-file ".config/dunst") (config-file "dunst")))
-   ("zathura"
-    ((home-file ".config/zathura") (config-file "zathura")))
+   (config* #:name "mpv"
+            #:links (list
+                     (link* #:filename (home-file ".config/mpv")
+                            #:target (config-file "mpv"))))
+   (config* #:name "openbox"
+            #:links (list
+                     (link* #:filename (home-file ".config/openbox")
+                            #:target (config-file "openbox"))))
+   (config* #:name "dunst"
+            #:links (list
+                     (link* #:filename (home-file ".config/dunst")
+                            #:target (config-file "dunst"))))
+   (config* #:name "zathura"
+            #:links (list
+                     (link* #:filename (home-file ".config/zathura")
+                            #:target (config-file "zathura"))))
 
-   ("X"
-    ((home-file ".Xmodmap")    (config-file "X/Xmodmap"))
-    ((home-file ".Xresources") (config-file "X/Xresources"))
-    ((home-file "XTerm")       (config-file "X/XTerm")))
+   (config* #:name "X"
+            #:links (list
+                     (link* #:filename (home-file ".Xmodmap")
+                            #:target (config-file "X/Xmodmap"))
+                     (link* #:filename (home-file ".Xresources")
+                            #:target (config-file "X/Xresources"))
+                     (link* #:filename (home-file "XTerm")
+                            #:target (config-file "X/XTerm"))))
 
-   ("bash"
-    ((home-file ".inputrc")      (config-file "bash/inputrc"))
-    ((home-file ".bashrc")       (config-file "bash/bashrc"))
-    ((home-file ".bash_profile") (config-file "bash/profile")))))
+   (config* #:name "bash"
+            #:links (list
+                     (link* #:filename (home-file ".inputrc")
+                            #:target (config-file "bash/inputrc"))
+                     (link* #:filename (home-file ".bashrc")
+                            #:target (config-file "bash/bashrc"))
+                     (link* #:filename (home-file ".bash_profile")
+                            #:target (config-file "bash/profile"))))))
 
 (define (configs-names)
   "Return list of all available config names."
