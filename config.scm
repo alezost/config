@@ -261,16 +261,18 @@ specified, then all available ones will be shown or deployed.")
    names))
 
 (define (main args)
-  (let* ((opts    (parse-args (cdr args)))
-         (action  (or (assq-ref opts 'action)
-                      (leave (string-append
-                              "No action is specified.~%"
-                              "Try '~a --help' for more information.")
-                             (car args))))
-         (names   (options->configs-names opts))
-         (configs (if (null? names)
-                      %configs
-                      (configs-names->configs names))))
-    (map action configs)))
+  (match args
+    ((command args ...)
+     (let* ((opts    (parse-args args))
+            (action  (or (assq-ref opts 'action)
+                         (leave (string-append
+                                 "No action is specified.~%"
+                                 "Try '~a --help' for more information.")
+                                command)))
+            (names   (options->configs-names opts))
+            (configs (if (null? names)
+                         %configs
+                         (configs-names->configs names))))
+       (map action configs)))))
 
 ;;; config.scm ends here
