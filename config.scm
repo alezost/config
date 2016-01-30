@@ -53,61 +53,61 @@
 (define %configs
   (make-configs
    ("config"
-    ((bin-file "config") "../config/config.scm"))
+    ((bin-file "config") (config-file "config.scm")))
    ("guix"
     ((bin-file "profile") (guix-script-file "profile.scm"))
     ((bin-file "system") (guix-script-file "system.scm")))
    ("conkeror"
-    ((home-file ".conkerorrc") "config/conkeror/init.js"))
+    ((home-file ".conkerorrc") (config-file "conkeror/init.js")))
    ("emacs"
-    ((home-file ".emacs.d/init.el") "../config/emacs/config/init.el"))
+    ((home-file ".emacs.d/init.el") (config-file "emacs/config/init.el")))
    ("stumpwm"
-    ((home-file ".stumpwmrc") "config/stumpwm/init.lisp"))
+    ((home-file ".stumpwmrc") (config-file "stumpwm/init.lisp")))
    ("shepherd"
     ((home-file ".config/shepherd/init.scm")
-     "../../config/shepherd/init.scm"))
+     (config-file "shepherd/init.scm")))
 
    ("ssh"
-    ((home-file ".ssh") "config/ssh"))
+    ((home-file ".ssh") (config-file "ssh")))
    ("gpg"
-    ((home-file ".gnupg") "config/gpg"))
+    ((home-file ".gnupg") (config-file "gpg")))
    ("auth"
-    ((home-file ".authinfo.gpg") "config/auth/authinfo.gpg"))
+    ((home-file ".authinfo.gpg") (config-file "auth/authinfo.gpg")))
    ("top"
-    ((home-file ".toprc") "config/top/toprc"))
+    ((home-file ".toprc") (config-file "top/toprc")))
    ("sbcl"
-    ((home-file ".sbclrc") "config/sbcl/sbclrc"))
+    ((home-file ".sbclrc") (config-file "sbcl/sbclrc")))
    ("git"
-    ((home-file ".gitconfig") "config/git/gitconfig"))
+    ((home-file ".gitconfig") (config-file "git/gitconfig")))
    ("lirc"
-    ((home-file ".lircrc") "config/lirc/lircrc"))
+    ((home-file ".lircrc") (config-file "lirc/lircrc")))
    ("mime"
-    ((home-file ".mime.types") "config/mime/mime.types"))
+    ((home-file ".mime.types") (config-file "mime/mime.types")))
    ("rtorrent"
-    ((home-file ".rtorrent.rc") "config/rtorrent/rc"))
+    ((home-file ".rtorrent.rc") (config-file "rtorrent/rc")))
    ("tvtime"
-    ((home-file ".tvtime") "config/tvtime"))
+    ((home-file ".tvtime") (config-file "tvtime")))
    ("mplayer"
-    ((home-file ".mplayer") "config/mplayer"))
+    ((home-file ".mplayer") (config-file "mplayer")))
 
    ("mpv"
-    ((home-file ".config/mpv") "../config/mpv"))
+    ((home-file ".config/mpv") (config-file "mpv")))
    ("openbox"
-    ((home-file ".config/openbox") "../config/openbox"))
+    ((home-file ".config/openbox") (config-file "openbox")))
    ("dunst"
-    ((home-file ".config/dunst") "../config/dunst"))
+    ((home-file ".config/dunst") (config-file "dunst")))
    ("zathura"
-    ((home-file ".config/zathura") "../config/zathura"))
+    ((home-file ".config/zathura") (config-file "zathura")))
 
    ("X"
-    ((home-file ".Xmodmap")    "config/X/Xmodmap")
-    ((home-file ".Xresources") "config/X/Xresources")
-    ((home-file "XTerm")       "config/X/XTerm"))
+    ((home-file ".Xmodmap")    (config-file "X/Xmodmap"))
+    ((home-file ".Xresources") (config-file "X/Xresources"))
+    ((home-file "XTerm")       (config-file "X/XTerm")))
 
    ("bash"
-    ((home-file ".inputrc")      "config/bash/inputrc")
-    ((home-file ".bashrc")       "config/bash/bashrc")
-    ((home-file ".bash_profile") "config/bash/profile"))))
+    ((home-file ".inputrc")      (config-file "bash/inputrc"))
+    ((home-file ".bashrc")       (config-file "bash/bashrc"))
+    ((home-file ".bash_profile") (config-file "bash/profile")))))
 
 (define (configs-names)
   "Return list of all available config names."
