@@ -150,7 +150,7 @@ specified, then all available ones will be shown or deployed.")
   (list-strings (configs-names)
                 #:title "Available configurations:"))
 
-(define (call-on-old-files proc)
+(define (call-with-old-files proc)
   "Call PROC on old configuration files."
   (let ((files (old-files)))
     (if (null? files)
@@ -158,14 +158,14 @@ specified, then all available ones will be shown or deployed.")
         (proc (old-files)))))
 
 (define (show-old-files)
-  (call-on-old-files
+  (call-with-old-files
    (lambda (files)
      (list-strings files
                    #:title "Old configuration files:"))))
 
 (define (ls-old-files)
   "Perform 'ls -l' on the old configuration files."
-  (call-on-old-files
+  (call-with-old-files
    (lambda (files)
      (list-strings
       files
@@ -176,7 +176,7 @@ specified, then all available ones will be shown or deployed.")
                           (sort files string-ci<)))))))
 
 (define (delete-old-files)
-  (call-on-old-files (cut map delete-file-recursively <>)))
+  (call-with-old-files (cut map delete-file-recursively <>)))
 
 (define %options
   (list (option '(#\h "help") #f #f
@@ -244,17 +244,17 @@ specified, then all available ones will be shown or deployed.")
                (_ #f))
               opts))
 
-(define (config-name->config name)
+(define (lookup-config name)
   "Return config record from '%configs' list by its NAME."
   (find (lambda (config)
           (equal? (config-name config) name))
         %configs))
 
-(define (configs-names->configs names)
+(define (lookup-configs names)
   "Return config records from '%configs' list by their NAMES."
   (filter-map
    (lambda (name)
-     (or (config-name->config name)
+     (or (lookup-config name)
          (begin ((message-proc #:destination (current-error-port))
                  "No '~a' configuration was found." name)
                 #f)))
@@ -272,7 +272,7 @@ specified, then all available ones will be shown or deployed.")
             (names   (options->configs-names opts))
             (configs (if (null? names)
                          %configs
-                         (configs-names->configs names))))
+                         (lookup-configs names))))
        (map action configs)))))
 
 ;;; config.scm ends here
