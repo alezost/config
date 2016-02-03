@@ -246,12 +246,10 @@ specified, then all available ones will be shown or deployed.")
                   (exit 0)))
         (option '(#\s "show") #f #f
                 (lambda (opt name arg seed)
-                  (alist-cons 'action show-config seed)))
+                  (alist-cons 'action 'show seed)))
         (option '(#\d "deploy") #f #f
                 (lambda (opt name arg seed)
-                  (alist-cons 'action
-                              (cut deploy-config <> old-unique-filename)
-                              seed)))))
+                  (alist-cons 'action 'deploy seed)))))
 
 (define (parse-args args)
   "Return alist of options from command-line ARGS."
@@ -282,12 +280,33 @@ specified, then all available ones will be shown or deployed.")
                  (old-filename (link-filename link))))
               (configs-links)))
 
-(define (options->configs-names opts)
-  "Return list of config names from OPTS alist."
+(define deploy-config*
+  (cut deploy-config <> old-unique-filename))
+
+(define (options->values name opts)
+  "Return list of values for NAME from OPTS alist.
+
+Example:
+
+  (options->values 'a '((a . 1) (b . 2) (a . 3)))  =>  (1 3)"
   (filter-map (match-lambda
-               (('config . name) name)
-               (_ #f))
+                ((key . value)
+                 (and (eq? key name) value))
+                (_ #f))
               opts))
+
+(define options->config-names
+  (cut options->values 'config <>))
+
+(define options->action-names
+  (cut options->values 'action <>))
+
+(define (action-names->action names)
+  "Return config procedure from action NAMES."
+  (cond
+   ((memq 'show names) show-config)
+   ((memq 'deploy names) deploy-config*)
+   (else #f)))
 
 (define (lookup-config name)
   "Return config record from '%configs' list by its NAME."
@@ -308,16 +327,17 @@ specified, then all available ones will be shown or deployed.")
 (define (main args)
   (match args
     ((command args ...)
-     (let* ((opts    (parse-args args))
-            (action  (or (assq-ref opts 'action)
-                         (leave (string-append
-                                 "No action is specified.~%"
-                                 "Try '~a --help' for more information.")
-                                command)))
-            (names   (options->configs-names opts))
-            (configs (if (null? names)
-                         %configs
-                         (lookup-configs names))))
+     (let* ((opts         (parse-args args))
+            (config-names (options->config-names opts))
+            (action-names (options->action-names opts))
+            (configs      (if (null? config-names)
+                              %configs
+                              (lookup-configs config-names)))
+            (action       (or (action-names->action action-names)
+                              (leave (string-append
+                                      "No action is specified.
+Try '~a --help' for more information.")
+                                     command))))
        (map action configs)))))
 
 ;;; config.scm ends here
