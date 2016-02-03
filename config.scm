@@ -34,42 +34,58 @@
  (srfi srfi-1)
  (srfi srfi-26)
  (srfi srfi-37)
- (al places)
+ (al configs)
  (al files)
- (al messages)
  (al links)
- (al configs))
+ (al messages)
+ (al places)
+ (al sources))
 
 (setlocale LC_ALL "")
 
 
 ;;; Configs
 
+(define (my-repo name)
+  (string-append "https://github.com/alezost/" name ".git"))
+
 (define %configs
   (list
    (config* #:name "config"
+            #:source (source* #:uri (my-repo "config")
+                              #:directory (config-file))
             #:links (list
                      (link* #:filename (bin-file "config")
                             #:target (config-file "config.scm"))))
    (config* #:name "guix"
+            #:source (source* #:uri (my-repo "guix-config")
+                              #:directory (guix-config-file))
             #:links (list
                      (link* #:filename (bin-file "profile")
                             #:target (guix-script-file "profile.scm"))
                      (link* #:filename (bin-file "system")
                             #:target (guix-script-file "system.scm"))))
    (config* #:name "shepherd"
+            #:source (source* #:uri (my-repo "shepherd-config")
+                              #:directory (config-file "shepherd"))
             #:links (list
                      (link* #:filename (home-file ".config/shepherd/init.scm")
                             #:target (config-file "shepherd/init.scm"))))
    (config* #:name "emacs"
+            #:source (source* #:uri (my-repo "emacs-config")
+                              #:directory (config-file "emacs/config"))
             #:links (list
                      (link* #:filename (home-file ".emacs.d/init.el")
                             #:target (config-file "emacs/config/init.el"))))
    (config* #:name "stumpwm"
+            #:source (source* #:uri (my-repo "stumpwm-config")
+                              #:directory (config-file "stumpwm"))
             #:links (list
                      (link* #:filename (home-file ".stumpwmrc")
                             #:target (config-file "stumpwm/init.lisp"))))
    (config* #:name "conkeror"
+            #:source (source* #:uri (my-repo "conkeror-config")
+                              #:directory (config-file "conkeror"))
             #:links (list
                      (link* #:filename (home-file ".conkerorrc")
                             #:target (config-file "conkeror/init.js"))))
@@ -176,10 +192,12 @@ Options:
   -o, --ls-old      perform 'ls -l' on the old configuration files and exit
   -D, --delete-old  delete old configuration files and exit
   -s, --show        show info of the specified configurations
+  -f, --fetch       fetch (git clone) source of the specified configurations
   -d, --deploy      deploy (create symlinks) the specified configurations")
   (display "\n
-If '--show' or '--deploy' option is used and no configuration is
-specified, then all available ones will be shown or deployed.")
+If '--show', '--fetch' or '--deploy' option is used and no configuration
+is specified, then all available ones will be shown, fetched or
+deployed.  '--fetch' and '--deploy' can be specified together.")
   (newline))
 
 (define* (list-strings strings #:key title
@@ -247,6 +265,9 @@ specified, then all available ones will be shown or deployed.")
         (option '(#\s "show") #f #f
                 (lambda (opt name arg seed)
                   (alist-cons 'action 'show seed)))
+        (option '(#\f "fetch") #f #f
+                (lambda (opt name arg seed)
+                  (alist-cons 'action 'fetch seed)))
         (option '(#\d "deploy") #f #f
                 (lambda (opt name arg seed)
                   (alist-cons 'action 'deploy seed)))))
@@ -303,10 +324,18 @@ Example:
 
 (define (action-names->action names)
   "Return config procedure from action NAMES."
-  (cond
-   ((memq 'show names) show-config)
-   ((memq 'deploy names) deploy-config*)
-   (else #f)))
+  (let ((show?   (memq 'show names))
+        (fetch?  (memq 'fetch names))
+        (deploy? (memq 'deploy names)))
+    (cond
+     (show? show-config)
+     ((and fetch? deploy?)
+      (lambda (config)
+        (fetch-config config)
+        (deploy-config* config)))
+     (fetch? fetch-config)
+     (deploy? deploy-config*)
+     (else #f))))
 
 (define (lookup-config name)
   "Return config record from '%configs' list by its NAME."
