@@ -1,0 +1,14 @@
+#!/bin/sh
+
+# This file is used for deploying my configs on a "fresh" system.
+# "config.scm" requires my guile modules, so the purpose of this file is
+# to clone my 'guile-modules' git repo, and run "config.scm" using them.
+
+THIS_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+MY_GUILE_DIR="$HOME/progs/guile/modules"
+
+git clone "https://github.com/alezost/guile-modules.git" \
+          "$MY_GUILE_DIR/al"
+
+GUILE_LOAD_PATH=$MY_GUILE_DIR \
+  guile -e main -s "$THIS_DIR/config.scm" --fetch --deploy
