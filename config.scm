@@ -1,5 +1,4 @@
-#!/usr/bin/guile \
--e main -s
+#!/usr/bin/env guile
 !#
 ;;; config.scm --- Deploy config files
 
@@ -368,5 +367,8 @@ Example:
 Try '~a --help' for more information.")
                                      command))))
        (map action configs)))))
+
+(when (batch-mode?)
+  (main (command-line)))
 
 ;;; config.scm ends here
