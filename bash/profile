@@ -78,6 +78,10 @@ export GUILE_LOAD_COMPILED_PATH=$GUILE_LOAD_PATH
 export EDITOR='emacsclient'
 export VIEWER='emacsclient'
 
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_CACHE_HOME="$HOME/.cache"
+export XDG_DATA_HOME="$HOME/.local/share"
+
 # Prevent sox from using pulseaudio.
 export AUDIODRIVER=alsa
 # Without this, there is no sound in programs (usually games) that use
