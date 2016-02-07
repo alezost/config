@@ -33,21 +33,28 @@ display_guix_profiles_paths () {
     done
 }
 
-display_guix_env () {
-    env_cmd="guix package --search-paths"
-    for path in $(display_guix_profiles_paths)
-    do
-        env_cmd="$env_cmd --profile='$path'"
-        add_dir_to_var_if_exists "$path/share" xdg_data_dirs
-        add_dir_to_var_if_exists "$path/etc/xdg" xdg_config_dirs
-    done
-    eval $(echo $env_cmd)
-    echo "export XDG_DATA_DIRS=$xdg_data_dirs"
-    echo "export XDG_CONFIG_DIRS=$xdg_config_dirs"
+set_guix_env () {
+    # Calculate environment for all Guix profiles and add it to the
+    # current environment.
+    guix=$(PATH="$MY_PATH:$PATH" which guix)
+    if [ $? -eq 0 ]; then   # if 'guix' executable is found
+        env_cmd="$guix package --search-paths=prefix"
+        for path in $(display_guix_profiles_paths)
+        do
+            env_cmd="$env_cmd --profile=$path"
+            # XXX Currently XDG_... variables are not set by 'guix
+            # package --search-paths' command, so handle them manually.
+            add_dir_to_var_if_exists "$path/share" xdg_data_dirs
+            add_dir_to_var_if_exists "$path/etc/xdg" xdg_config_dirs
+        done
+        export XDG_DATA_DIRS="$xdg_data_dirs$XDG_DATA_DIRS"
+        export XDG_CONFIG_DIRS="$xdg_config_dirs$XDG_CONFIG_DIRS"
+        echo "Running: $env_cmd"
+        eval $($env_cmd)
+    fi
 }
 
-# Calculate environment for all Guix profiles.
-eval $(display_guix_env)
+set_guix_env
 
 if [ -d $MY_GUIX_SYSTEM_PROFILE_DIR ]; then   # if it is GuixSD
     export PATH="/run/setuid-programs:$PATH"
