@@ -1,5 +1,3 @@
--*- mode: org; -*-
-
 ** About
 
 This repository contains:
