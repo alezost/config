@@ -1,14 +1,55 @@
 -*- mode: org; -*-
 
-This repository contains my configuration files (aka "dot-files") for
-various programs.  But not all: several "big" (usually programmable)
-configs (for emacs, stumpwm, conkeror, etc.) live in their own
-repositories (they may be found in [[https://gitlab.com/alezost-config]]
-group).
+** About
 
-To deploy these config files, appropriate symlinks are being created
+This repository contains:
+
+- My configuration files (aka "dot-files") for various programs.  But
+  not all: several "big" (usually programmable) configs (for guix,
+  emacs, stumpwm, etc.) live in their own repositories (they may be
+  found in [[https://gitlab.com/alezost-config]] group).
+
+- A tool (=config.scm= Guile script) to deal with my configs.
+
+** config.scm
+
+So to deploy my config files, appropriate symlinks are being created
 (for example, =~/.bashrc= is becoming a symlink to =bash/bashrc= from
 this repo).  For this purpose (and for other useful actions, like
 listing available configs or removing old configuration files), I use
-=config.scm= script from this repo.  It relies on some of my
-[[https://gitlab.com/alezost/guile-modules]].
+=config.scm= script from this repo.  It relies on my [[https://gitlab.com/alezost/guile-modules][guile modules]].
+
+*** Examples
+
+=config.scm= deploys (symlinks) itself to =~/bin/config= and as [[~/bin]]
+directory is in my PATH, I can refer to it as =config=.  Although it
+provides "-h"/"--help" option, here are some examples anyway:
+
+- Clone all repositories with my configs to appropriate places and make
+  the required symlinks:
+
+  #+BEGIN_SRC shell
+  config --fetch --deploy
+  #+END_SRC
+
+- Display a list of names of all available configurations:
+
+  #+BEGIN_SRC shell
+  config -l
+  #+END_SRC
+
+- Show verbose descriptions (git repositories, directories where they
+  will cloned and symlinks that will be created during deploying) of
+  "emacs" and "shepherd" configurations:
+
+  #+BEGIN_SRC shell
+  config --show emacs shepherd
+  #+END_SRC
+
+** Bootstrapping
+
+After installing a new operating system, my first wish is to have all my
+configs deployed!  So I just clone this repo and run =bootstrap= shell
+script which does the job for me (it downloads my guile modules and
+executes =config.scm= using them).  There is also =help= shell script to
+remind me the details of bootstrapping process on a fresh system.
