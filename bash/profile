@@ -5,6 +5,7 @@
 
 MY_GUIX_PROFILE_NAMES="emacs games build misc main"
 
+export MY_PATH="$HOME/bin"
 export MY_CONFIG_DIR="$HOME/config"
 export MY_CONFIG_GUIX_DIR="$MY_CONFIG_DIR/guix"
 export MY_PROGS_DIR="$HOME/progs"
@@ -68,7 +69,7 @@ if [ -d $MY_GUIX_USER_PROFILE_DIR ]; then
     fi
 fi
 
-export PATH="$HOME/bin:$PATH"
+export PATH="$MY_PATH:$PATH"
 export SSH_AUTH_SOCK="$HOME/.gnupg/S.gpg-agent.ssh"
 export GUIX_PACKAGE_PATH="$MY_CONFIG_GUIX_DIR/guix-package-path"
 
