@@ -1,0 +1,20 @@
+#!/bin/sh
+
+cat << EOF
+So you've installed a new system, cloned this repo and now you are
+trying to recall how to proceed.  Here we go:
+
+0. Don't forget to install the software you can hardly live without
+   (Guix, Shepherd, Emacs, StumpWM and Guile to run your scripts).
+
+1. Fetch and deploy all your configs:
+
+   $ ./bootstrap
+
+2. (Only for GuixSD) Make "/usr/bin/env" to be able to run your scripts:
+
+   # ln -sv /run/current-system/profile /usr
+
+3. Start new VT and enjoy your environment: populate guix profiles with
+   'profile all', reconfigure GuixSD with 'system r', etc.
+EOF
