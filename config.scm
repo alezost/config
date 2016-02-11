@@ -72,10 +72,10 @@
                             #:target (config-file "shepherd/init.scm"))))
    (config* #:name "emacs"
             #:source (source* #:uri (my-repo "emacs-config")
-                              #:directory (config-file "emacs/config"))
+                              #:directory (config-file "emacs"))
             #:links (list
                      (link* #:filename (home-file ".emacs.d/init.el")
-                            #:target (config-file "emacs/config/init.el"))))
+                            #:target (config-file "emacs/init/init.el"))))
    (config* #:name "stumpwm"
             #:source (source* #:uri (my-repo "stumpwm-config")
                               #:directory (config-file "stumpwm"))
