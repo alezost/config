@@ -136,37 +136,37 @@ begin main
     begin
         prog = irexec
         button = KEY_RECORD
-        config = emacsclient -s server-emms --eval '(utl-emms-seek-backward 10)'
+        config = emacsclient -s server-emms --eval '(al/emms-seek-backward 10)'
         flags = quit
     end
     begin
         prog = irexec
         button = KEY_STOP
-        config = emacsclient -s server-emms --eval '(utl-emms-seek-forward 10)'
+        config = emacsclient -s server-emms --eval '(al/emms-seek-forward 10)'
         flags = quit
     end
     begin
         prog = irexec
         button = KEY_OK
-        config = emacsclient -s server-emms --eval '(utl-emms-mpv-show-progress)'
+        config = emacsclient -s server-emms --eval '(al/emms-mpv-show-progress)'
         flags = quit
     end
     begin
         prog = irexec
         button = KEY_ZOOM
-        config = emacsclient -s server-emms --eval '(utl-emms-mpv-toggle-fullscreen)'
+        config = emacsclient -s server-emms --eval '(al/emms-mpv-toggle-fullscreen)'
         flags = quit
     end
     begin
         prog = irexec
         button = KEY_VOLUMEDOWN
-        config = emacsclient -s server-emms --eval '(utl-emms-seek-backward 60)'
+        config = emacsclient -s server-emms --eval '(al/emms-seek-backward 60)'
         flags = quit
     end
     begin
         prog = irexec
         button = KEY_VOLUMEUP
-        config = emacsclient -s server-emms --eval '(utl-emms-seek-forward 60)'
+        config = emacsclient -s server-emms --eval '(al/emms-seek-forward 60)'
         flags = quit
     end
 
@@ -374,7 +374,7 @@ end
 begin
     prog = irexec
     button = KEY_TEXT
-    config = stumpish -e utl-toggle-root < /dev/null
+    config = stumpish -e al/toggle-root < /dev/null
 end
 
 begin
