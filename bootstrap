@@ -7,7 +7,8 @@
 THIS_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 MY_GUILE_DIR="$(mktemp --directory)"
 
-git clone "https://gitlab.com/alezost-config/guile.git" \
+git clone --depth 1 \
+          "https://gitlab.com/alezost-config/guile.git" \
           "$MY_GUILE_DIR"
 
 GUILE_LOAD_PATH=$MY_GUILE_DIR/modules \
