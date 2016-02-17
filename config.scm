@@ -56,14 +56,12 @@
             #:links (list
                      (link* #:filename (bin-file "config")
                             #:target (config-file "config.scm"))))
+   (config* #:name "guile"
+            #:source (source* #:uri (my-repo "guile-config")
+                              #:directory (config-file "guile")))
    (config* #:name "guix"
             #:source (source* #:uri (my-repo "guix-config")
-                              #:directory (guix-config-file))
-            #:links (list
-                     (link* #:filename (bin-file "profile")
-                            #:target (guix-script-file "profile.scm"))
-                     (link* #:filename (bin-file "system")
-                            #:target (guix-script-file "system.scm"))))
+                              #:directory (guix-config-file)))
    (config* #:name "shepherd"
             #:source (source* #:uri (my-repo "shepherd-config")
                               #:directory (config-file "shepherd"))

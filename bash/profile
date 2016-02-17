@@ -5,11 +5,10 @@
 
 MY_GUIX_PROFILE_NAMES="emacs games build misc main"
 
-export MY_PATH="$HOME/bin"
 export MY_CONFIG_DIR="$HOME/config"
-export MY_PROGS_DIR="$HOME/progs"
-export MY_GUILE_DIR="$MY_PROGS_DIR/guile/modules"
+export MY_GUILE_DIR="$MY_CONFIG_DIR/guile"
 export MY_GUIX_DIR="$MY_CONFIG_DIR/guix"
+export MY_PATH="$HOME/bin:$MY_GUILE_DIR/scripts"
 
 export MY_GUIX_PROFILES_DIR="$HOME/.guix-profiles"
 export MY_GUIX_USER_PROFILE_DIR="$MY_GUIX_PROFILES_DIR/main/main"
@@ -79,7 +78,7 @@ export PATH="$MY_PATH:$PATH"
 export SSH_AUTH_SOCK="$HOME/.gnupg/S.gpg-agent.ssh"
 export GUIX_PACKAGE_PATH="$MY_GUIX_DIR/guix-package-path"
 
-export GUILE_LOAD_PATH="$MY_GUILE_DIR:$MY_GUIX_DIR/modules:$HOME/devel/guix:$HOME/devel/shepherd/modules:$GUILE_LOAD_PATH"
+export GUILE_LOAD_PATH="$MY_GUILE_DIR/modules:$MY_GUIX_DIR/modules:$HOME/devel/guix:$HOME/devel/shepherd/modules:$GUILE_LOAD_PATH"
 export GUILE_LOAD_COMPILED_PATH=$GUILE_LOAD_PATH
 
 export EDITOR='emacsclient'
