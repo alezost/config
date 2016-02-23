@@ -106,8 +106,3 @@ shopt -s checkwinsize
 # Unbind C-s and C-u.
 # stty -ixon
 stty kill ^- stop ^-
-
-if [ -f /usr/local/bin/udisks_functions ]; then
-    . /usr/local/bin/udisks_functions
-fi
-
