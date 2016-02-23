@@ -12,4 +12,4 @@ git clone --depth 1 \
           "$MY_GUILE_DIR"
 
 GUILE_LOAD_PATH=$MY_GUILE_DIR/modules \
-  guile -e main -s "$THIS_DIR/config.scm" --fetch --deploy
+  guile "$THIS_DIR/config.scm" --fetch --deploy
