@@ -3,6 +3,7 @@
 /emacs
 /gpg/*
 !/gpg/gpg-agent.conf
+/guile
 /guix
 /rtorrent/session
 /shepherd
