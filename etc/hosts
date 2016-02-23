@@ -1,0 +1,10 @@
+# -*- mode: conf-space -*-
+
+# <ip-address>	<hostname.domain.org>	<hostname>
+127.0.0.1	localhost.localdomain	localhost
+::1		localhost.localdomain	localhost
+127.0.0.1	leviafan
+192.168.1.1	zeus
+192.168.1.40	hyperion
+
+# hosts ends here

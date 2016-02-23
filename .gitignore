@@ -1,7 +1,6 @@
 /auth
 /conkeror
 /emacs
-/etc/sudoers
 /gpg/*
 !/gpg/gpg-agent.conf
 /guix

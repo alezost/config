@@ -1,0 +1,22 @@
+## -*- mode: conf-unix; -*-
+
+### Cmnd alias specification
+
+Cmnd_Alias HALT = /run/current-system/profile/sbin/reboot, \
+                  /run/current-system/profile/sbin/halt
+Cmnd_Alias VT   = /run/current-system/profile/bin/chvt, \
+                  /run/current-system/profile/bin/fgconsole
+Cmnd_Alias X    = /run/current-system/profile/bin/Xdaemon, \
+                  /run/current-system/profile/bin/Xkill
+
+### Defaults specification
+
+Defaults	env_editor
+Defaults:al	timestamp_timeout=30
+
+### User privilege specification
+
+root ALL=(ALL) ALL
+%wheel leviafan=(ALL) ALL
+
+al leviafan=NOPASSWD: HALT, VT, X
