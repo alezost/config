@@ -148,6 +148,10 @@
             #:links (list
                      (link* #:filename (home-file ".config/zathura")
                             #:target (config-file "zathura"))))
+   (config* #:name "fontconfig"
+            #:links (list
+                     (link* #:filename (home-file ".config/fontconfig")
+                            #:target (config-file "fontconfig"))))
 
    (config* #:name "X"
             #:links (list
