@@ -60,7 +60,7 @@ if [ -d $MY_GUIX_SYSTEM_PROFILE_DIR ]; then   # if it is GuixSD
 
     # Ignore EMACSLOADPATH defined by "/etc/profile" because I know
     # better what I want to load.
-    export EMACSLOADPATH=
+    unset EMACSLOADPATH
 fi
 
 if [ -d $MY_GUIX_USER_PROFILE_DIR ]; then
