@@ -52,6 +52,10 @@ set_guix_env () {
     fi
 }
 
+# Set XDG variables to default values if needed.
+[ ! -v XDG_DATA_DIRS ] && [ -d /usr/share ] && export XDG_DATA_DIRS=/usr/share
+[ ! -v XDG_CONFIG_DIRS ] && [ -d /etc/xdg ] && export XDG_CONFIG_DIRS=/etc/xdg
+
 set_guix_env
 
 if [ -d $MY_GUIX_SYSTEM_PROFILE_DIR ]; then   # if it is GuixSD
