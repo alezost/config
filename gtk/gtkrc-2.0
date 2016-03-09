@@ -1,0 +1,11 @@
+# -*- mode: conf-unix -*-
+
+# Available properties:
+# https://developer.gnome.org/gtk2/stable/GtkSettings.html#GtkSettings.properties
+
+gtk-theme-name = "Clearlooks"
+gtk-icon-theme-name = "Adwaita"
+gtk-font-name = "Liberation 11"
+gtk-tooltip-timeout = 0
+gtk-menu-popup-delay = 0
+gtk-can-change-accels = 1

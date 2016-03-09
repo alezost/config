@@ -153,6 +153,13 @@
                      (link* #:filename (home-file ".config/fontconfig")
                             #:target (config-file "fontconfig"))))
 
+   (config* #:name "gtk"
+            #:links (list
+                     (link* #:filename (home-file ".gtkrc-2.0")
+                            #:target (config-file "gtk/gtkrc-2.0"))
+                     (link* #:filename (home-file ".config/gtk-3.0")
+                            #:target (config-file "gtk/3.0"))))
+
    (config* #:name "X"
             #:links (list
                      (link* #:filename (home-file ".Xmodmap")

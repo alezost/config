@@ -92,6 +92,9 @@ export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_DATA_HOME="$HOME/.local/share"
 
+# Always show normal scrollbars.
+export GTK_OVERLAY_SCROLLING=0
+
 # Prevent sox from using pulseaudio.
 export AUDIODRIVER=alsa
 # Without this, there is no sound in programs (usually games) that use
