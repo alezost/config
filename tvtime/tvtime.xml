@@ -38,6 +38,12 @@
   <bind command="display_info">
     <keyboard key="o"/>
   </bind>
+  <bind command="mixer_down">
+    <keyboard key="Down"/>
+  </bind>
+  <bind command="mixer_up">
+    <keyboard key="Up"/>
+  </bind>
   <bind command="channel_down">
     <keyboard key="Left"/>
   </bind>
