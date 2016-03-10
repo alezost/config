@@ -9,3 +9,10 @@ gtk-font-name = "Liberation 11"
 gtk-tooltip-timeout = 0
 gtk-menu-popup-delay = 0
 gtk-can-change-accels = 1
+
+style "default" {
+    GtkScrollbar::has_forward_stepper = 1
+    GtkScrollbar::has_backward_stepper = 1
+    GtkScrollbar::has_secondary_forward_stepper = 1
+    GtkScrollbar::has_secondary_backward_stepper = 1
+}
