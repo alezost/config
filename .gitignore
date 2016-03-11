@@ -6,6 +6,7 @@
 /guile
 /guix
 /rtorrent/session
+/shell
 /shepherd
 /ssh
 /stumpwm

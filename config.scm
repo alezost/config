@@ -68,6 +68,16 @@
             #:links (list
                      (link* #:filename (home-file ".config/shepherd/init.scm")
                             #:target (config-file "shepherd/init.scm"))))
+   (config* #:name "shell"
+            #:source (source* #:uri (my-repo "shell-config")
+                              #:directory (config-file "shell"))
+            #:links (list
+                     (link* #:filename (home-file ".inputrc")
+                            #:target (config-file "shell/bash/inputrc"))
+                     (link* #:filename (home-file ".bashrc")
+                            #:target (config-file "shell/bash/bashrc"))
+                     (link* #:filename (home-file ".bash_profile")
+                            #:target (config-file "shell/bash/profile"))))
    (config* #:name "emacs"
             #:source (source* #:uri (my-repo "emacs-config")
                               #:directory (config-file "emacs"))
@@ -167,16 +177,7 @@
                      (link* #:filename (home-file ".Xresources")
                             #:target (config-file "X/Xresources"))
                      (link* #:filename (home-file "XTerm")
-                            #:target (config-file "X/XTerm"))))
-
-   (config* #:name "bash"
-            #:links (list
-                     (link* #:filename (home-file ".inputrc")
-                            #:target (config-file "bash/inputrc"))
-                     (link* #:filename (home-file ".bashrc")
-                            #:target (config-file "bash/bashrc"))
-                     (link* #:filename (home-file ".bash_profile")
-                            #:target (config-file "bash/profile"))))))
+                            #:target (config-file "X/XTerm"))))))
 
 (define (configs-names)
   "Return list of all available config names."
