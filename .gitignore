@@ -1,14 +1,11 @@
-/auth
 /conkeror
 /emacs
-/gpg/*
-!/gpg/gpg-agent.conf
 /guile
 /guix
 /rtorrent/session
+/secret
 /shell
 /shepherd
-/ssh
 /stumpwm
 /tvtime/tvguide
 /zathura/theme

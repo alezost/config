@@ -48,7 +48,7 @@
 (define (my-repo name)
   (string-append "https://github.com/alezost/" name ".git"))
 
-(define %configs
+(define %main-configs
   (list
    (config* #:name "config"
             #:source (source* #:uri (my-repo "config")
@@ -97,18 +97,6 @@
                      (link* #:filename (home-file ".conkerorrc")
                             #:target (config-file "conkeror/init.js"))))
 
-   (config* #:name "ssh"
-            #:links (list
-                     (link* #:filename (home-file ".ssh")
-                            #:target (config-file "ssh"))))
-   (config* #:name "gpg"
-            #:links (list
-                     (link* #:filename (home-file ".gnupg")
-                            #:target (config-file "gpg"))))
-   (config* #:name "auth"
-            #:links (list
-                     (link* #:filename (home-file ".authinfo.gpg")
-                            #:target (config-file "auth/authinfo.gpg"))))
    (config* #:name "top"
             #:links (list
                      (link* #:filename (home-file ".toprc")
@@ -178,6 +166,14 @@
                             #:target (config-file "X/Xresources"))
                      (link* #:filename (home-file "XTerm")
                             #:target (config-file "X/XTerm"))))))
+
+(define %secret-configs
+  (catch #t
+    (lambda () (primitive-load (secret-config-file "config.scm")))
+    (const '())))
+
+(define %configs
+  (append %main-configs %secret-configs))
 
 (define (configs-names)
   "Return list of all available config names."
