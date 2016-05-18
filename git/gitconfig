@@ -3,6 +3,7 @@
 [user]
 	name = Alex Kost
 	email = alezost@gmail.com
+	signingkey = 2A0EE98F
 [sendemail]
 	smtpEncryption = tls
 	smtpServer = smtp.gmail.com
