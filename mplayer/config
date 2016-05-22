@@ -5,5 +5,7 @@ ao=alsa
 # subfont-osd-scale=3
 osd-duration=2000
 
+vf-add=rotate
+
 [gnome-mplayer]
 msglevel=all=5
