@@ -134,6 +134,10 @@
             #:links (list
                      (link* #:filename (home-file ".config/mpv")
                             #:target (config-file "mpv"))))
+   (config* #:name "youtube-dl"
+            #:links (list
+                     (link* #:filename (home-file ".config/youtube-dl")
+                            #:target (config-file "youtube-dl"))))
    (config* #:name "openbox"
             #:links (list
                      (link* #:filename (home-file ".config/openbox")
