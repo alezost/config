@@ -9,7 +9,7 @@ begin
     prog = irexec
     button = KEY_GREEN
     button = KEY_MODE
-    config = mosdctl -e showstr
+    config = osd-text
     flags = quit
 end
 
@@ -20,21 +20,21 @@ begin main
         prog = irexec
         button = KEY_POWER
         mode = tv
-        config = mosdctl -s 'mode: tv' ; toggle-tvtime &
+        config = osd-text "mode: tv" ; toggle-tvtime &
         flags = quit
     end
     begin
         prog = irexec
         button = KEY_SCREEN
         mode = mouse
-        config = mosdctl -s 'mode: mouse'
+        config = osd-text "mode: mouse"
         flags = quit
     end
     begin
         prog = irexec
         button = KEY_MODE
         mode = mouse
-        config = mosdctl -s 'mode: mouse'
+        config = osd-text "mode: mouse"
         flags = quit
     end
 
@@ -174,22 +174,19 @@ begin main
     begin
         prog = irexec
         button = KEY_MUTE
-        # config = amixer -q set Master toggle
-        config = setaudio -sq Master toggle
+        config = osd-sound sset Master toggle
     end
     begin
         prog = irexec
         button = KEY_CHANNELUP
         repeat = 1
-        # config = amixer -q set Master 2%+
-        config = setaudio -sq Master 1+
+        config = osd-sound sset Master 3%+
     end
     begin
         prog = irexec
         button = KEY_CHANNELDOWN
         repeat = 1
-        # config = amixer -q set Master 2%-
-        config = setaudio -sq Master 1-
+        config = osd-sound sset Master 3%-
     end
 end main
 
@@ -200,14 +197,14 @@ begin mouse
         prog = irexec
         button = KEY_SCREEN
         mode = main
-        config = mosdctl -s 'mode: main'
+        config = osd-text "mode: main"
         flags = quit
     end
     begin
         prog = irexec
         button = KEY_MODE
         mode = tv
-        config = mosdctl -s 'mode: tv'
+        config = osd-text "mode: tv"
         flags = quit
     end
     begin
@@ -231,14 +228,14 @@ begin tv
         prog = irexec
         button = KEY_POWER
         mode = main
-        config = mosdctl -s 'mode: main' ; tvtime-command QUIT
+        config = osd-text "mode: main" ; tvtime-command QUIT
         flags = quit
     end
     begin
         prog = irexec
         button = KEY_MODE
         mode = main
-        config = mosdctl -s 'mode: main'
+        config = osd-text "mode: main"
         flags = quit
     end
 
@@ -347,19 +344,19 @@ begin tv
     begin
         prog = irexec
         button = KEY_MUTE
-        config = setaudio -sq Line toggle
+        config = osd-sound sset Line toggle
     end
     begin
         prog = irexec
         button = KEY_CHANNELUP
         repeat = 1
-        config = setaudio -sq Line 1+
+        config = osd-sound sset Line 3%+
     end
     begin
         prog = irexec
         button = KEY_CHANNELDOWN
         repeat = 1
-        config = setaudio -sq Line 1-
+        config = osd-sound sset Line 3%-
     end
 end tv
 
@@ -368,7 +365,7 @@ end tv
 begin
     prog = irexec
     button = KEY_INFO
-    config = clock &
+    config = toggle-osd-clock &
 end
 
 begin
