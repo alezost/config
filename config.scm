@@ -68,6 +68,12 @@
             #:links (list
                      (link* #:filename (home-file ".config/shepherd/init.scm")
                             #:target (config-file "shepherd/init.scm"))))
+   (config* #:name "guile-daemon"
+            #:source (source* #:uri (my-repo "guile-daemon-config")
+                              #:directory (config-file "guile-daemon"))
+            #:links (list
+                     (link* #:filename (home-file ".config/guile-daemon/init.scm")
+                            #:target (config-file "guile-daemon/init.scm"))))
    (config* #:name "shell"
             #:source (source* #:uri (my-repo "shell-config")
                               #:directory (config-file "shell"))

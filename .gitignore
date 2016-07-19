@@ -1,6 +1,7 @@
 /conkeror
 /emacs
 /guile
+/guile-daemon
 /guix
 /rtorrent/session
 /secret
