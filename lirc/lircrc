@@ -45,70 +45,68 @@ begin main
         flags = quit
     end
 
-    begin
-        prog = irexec
-        button = KEY_0
-        config = xdotool key g
-        flags = quit
-    end
-
-    # Cursor control & motion
-    begin
-        prog = irexec
-        button = KEY_2
-        config = xdotool key Up
-        repeat = 1
-        flags = quit
-    end
-    begin
-        prog = irexec
-        button = KEY_8
-        config = xdotool key Down
-        repeat = 1
-        flags = quit
-    end
-    begin
-        prog = irexec
-        button = KEY_4
-        config = xdotool key Left
-        repeat = 1
-        flags = quit
-    end
-    begin
-        prog = irexec
-        button = KEY_6
-        config = xdotool key Right
-        repeat = 1
-        flags = quit
-    end
-    begin
-        prog = irexec
-        button = KEY_1
-        config = xdotool key Home
-        flags = quit
-    end
-    begin
-        prog = irexec
-        button = KEY_7
-        config = xdotool key End
-        flags = quit
-    end
-    begin
-        prog = irexec
-        button = KEY_3
-        config = xdotool key Page_Up
-        flags = quit
-    end
-    begin
-        prog = irexec
-        button = KEY_9
-        config = xdotool key Page_Down
-        flags = quit
-    end
+    # OSD sleep
     begin
         prog = irexec
         button = KEY_5
-        config = xdotool key Return
+        config = osd-sleep
+        repeat = 1
+        flags = quit
+    end
+
+    begin
+        prog = irexec
+        button = KEY_0
+        config = osd-sleep 0
+        repeat = 1
+        flags = quit
+    end
+
+    begin
+        prog = irexec
+        button = KEY_1
+        config = osd-sleep +1
+        repeat = 1
+        flags = quit
+    end
+
+    begin
+        prog = irexec
+        button = KEY_7
+        config = osd-sleep -1
+        repeat = 1
+        flags = quit
+    end
+
+    begin
+        prog = irexec
+        button = KEY_2
+        config = osd-sleep +3
+        repeat = 1
+        flags = quit
+    end
+
+    begin
+        prog = irexec
+        button = KEY_8
+        config = osd-sleep -3
+        repeat = 1
+        flags = quit
+    end
+
+    begin
+        prog = irexec
+        button = KEY_3
+        config = osd-sleep +10
+        repeat = 1
+        flags = quit
+    end
+
+    begin
+        prog = irexec
+        button = KEY_9
+        config = osd-sleep -10
+        repeat = 1
         flags = quit
     end
 
