@@ -14,6 +14,7 @@
   <option name="AlwaysOnTop" value="0"/>
   <option name="QuietScreenshots" value="0"/>
   <option name="UnmuteVolume" value="-1"/>
+  <option name="ScreenShotDir" value="~/tmp/screenshots"/>
   <option name="Muted" value="0"/>
   <option name="V4LInput" value="0"/>
   <!-- <option name="V4LDevice" value="/dev/tv"/> -->
