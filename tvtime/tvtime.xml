@@ -27,7 +27,7 @@
   <option name="FullScreen" value="0"/>
   <option name="ColourInvert" value="0"/>
   <option name="MirrorInput" value="0"/>
-  <option name="TimeFormat" value="%T"/>
+  <option name="TimeFormat" value="%F_%T"/>
   <option name="XMLTVFile" value="~/.tvtime/xmltv.xml"/>
   <option name="XMLTVLanguage" value="ru"/>
   <bind command="toggle_fullscreen">
