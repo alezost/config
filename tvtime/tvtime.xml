@@ -54,4 +54,13 @@
   <bind command="channel_prev">
     <keyboard key="r"/>
   </bind>
+  <bind command="show_epg">
+    <keyboard key="p"/>
+  </bind>
+  <bind command="menu_down">
+    <keyboard key="e"/>
+  </bind>
+  <bind command="menu_up">
+    <keyboard key="."/>
+  </bind>
 </tvtime>
