@@ -695,42 +695,42 @@
     </keybind>
     <keybind key="XF86AudioPrev">
       <action name="Execute">
-        <command>emacsclient -s server-emms --eval '(utl-emms-seek-backward 10)'</command>
+        <command>emacsclient -s server-emms --eval '(al/emms-seek-backward 10)'</command>
       </action>
     </keybind>
     <keybind key="XF86AudioNext">
       <action name="Execute">
-        <command>emacsclient -s server-emms --eval '(utl-emms-seek-forward 10)'</command>
+        <command>emacsclient -s server-emms --eval '(al/emms-seek-forward 10)'</command>
       </action>
     </keybind>
     <keybind key="C-XF86AudioPrev">
       <action name="Execute">
-        <command>emacsclient -s server-emms --eval '(utl-emms-seek-backward 3)'</command>
+        <command>emacsclient -s server-emms --eval '(al/emms-seek-backward 3)'</command>
       </action>
     </keybind>
     <keybind key="C-XF86AudioNext">
       <action name="Execute">
-        <command>emacsclient -s server-emms --eval '(utl-emms-seek-forward 3)'</command>
+        <command>emacsclient -s server-emms --eval '(al/emms-seek-forward 3)'</command>
       </action>
     </keybind>
     <keybind key="A-XF86AudioPrev">
       <action name="Execute">
-        <command>emacsclient -s server-emms --eval '(utl-emms-seek-backward 60)'</command>
+        <command>emacsclient -s server-emms --eval '(al/emms-seek-backward 60)'</command>
       </action>
     </keybind>
     <keybind key="A-XF86AudioNext">
       <action name="Execute">
-        <command>emacsclient -s server-emms --eval '(utl-emms-seek-forward 60)'</command>
+        <command>emacsclient -s server-emms --eval '(al/emms-seek-forward 60)'</command>
       </action>
     </keybind>
     <keybind key="A-C-XF86AudioPrev">
       <action name="Execute">
-        <command>emacsclient -s server-emms --eval '(utl-emms-seek-backward 180)'</command>
+        <command>emacsclient -s server-emms --eval '(al/emms-seek-backward 180)'</command>
       </action>
     </keybind>
     <keybind key="A-C-XF86AudioNext">
       <action name="Execute">
-        <command>emacsclient -s server-emms --eval '(utl-emms-seek-forward 180)'</command>
+        <command>emacsclient -s server-emms --eval '(al/emms-seek-forward 180)'</command>
       </action>
     </keybind>
     <keybind key="XF86AudioMedia">
@@ -740,7 +740,7 @@
     </keybind>
     <keybind key="XF86Music">
       <action name="Execute">
-        <command>emacs-eval '(utl-emms-notify)'</command>
+        <command>emacs-eval '(al/emms-notify)'</command>
       </action>
     </keybind>
 
