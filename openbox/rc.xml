@@ -491,150 +491,53 @@
     <!-- Controlling sound volume -->
     <keybind key="XF86AudioRaiseVolume">
       <action name="Execute">
-        <!-- <command>amixer -q sset Master 3%+</command> -->
-        <!-- <command>pactl set-sink-volume 0 !-!-  +3%</command> -->
-        <command>setaudio -sq Master 1+</command>
+        <command>osd-sound sset Master 3%+</command>
       </action>
     </keybind>
     <keybind key="XF86AudioLowerVolume">
       <action name="Execute">
-        <!-- <command>amixer -q sset Master 3%-</command> -->
-        <command>setaudio -sq Master 1-</command>
+        <command>osd-sound sset Master 3%-</command>
       </action>
     </keybind>
     <keybind key="C-XF86AudioRaiseVolume">
       <action name="Execute">
-        <command>setaudio -sq Line 3+</command>
+        <command>osd-sound sset Line 3%+</command>
       </action>
     </keybind>
     <keybind key="C-XF86AudioLowerVolume">
       <action name="Execute">
-        <command>setaudio -sq Line 3-</command>
+        <command>osd-sound sset Line 3%-</command>
       </action>
     </keybind>
     <keybind key="A-XF86AudioRaiseVolume">
       <action name="Execute">
-        <!-- <command>amixer -q sset Master 10%+</command> -->
-        <command>setaudio -sq Master 3+</command>
+        <command>osd-sound sset Master 10%+</command>
       </action>
     </keybind>
     <keybind key="A-XF86AudioLowerVolume">
       <action name="Execute">
-        <!-- <command>amixer -q sset Master 10%-</command> -->
-        <command>setaudio -sq Master 3-</command>
+        <command>osd-sound sset Master 10%-</command>
       </action>
     </keybind>
-    <keybind key="W-XF86AudioRaiseVolume">
+    <keybind key="A-C-XF86AudioRaiseVolume">
       <action name="Execute">
-        <command>setaudio -sq Master 50%</command>
+        <command>osd-sound sset Master 60%</command>
       </action>
     </keybind>
-    <keybind key="W-XF86AudioLowerVolume">
+    <keybind key="A-C-XF86AudioLowerVolume">
       <action name="Execute">
-        <command>setaudio -sq Master 10%</command>
+        <command>osd-sound sset Master 20%</command>
       </action>
     </keybind>
     <keybind key="Mod3-Escape">
       <action name="Execute">
-        <command>mosdctl --hide-all</command>
-      </action>
-    </keybind>
-    <keybind key="S-XF86AudioMute">
-      <action name="Execute">
-        <command>setaudio -sq Master</command>
+        <command>hide-osds</command>
       </action>
     </keybind>
     <keybind key="XF86AudioMute">
       <action name="Execute">
-        <!-- <command>mute</command> -->
-        <command>setaudio -sq Master toggle</command>
+        <command>osd-sound sset Master toggle</command>
       </action>
-    </keybind>
-
-    <keybind chroot="yes" key="C-XF86AudioMute">
-      <keybind chroot="yes" key="l">
-        <keybind key="XF86AudioMute">
-          <action name="Execute">
-            <command>setaudio -sq Master left 0</command>
-          </action>
-        </keybind>
-        <keybind key="XF86AudioRaiseVolume">
-          <action name="Execute">
-            <command>setaudio -sq Master left 1+</command>
-          </action>
-        </keybind>
-        <keybind key="XF86AudioLowerVolume">
-          <action name="Execute">
-            <command>setaudio -sq Master left 1-</command>
-          </action>
-        </keybind>
-        <keybind key="A-XF86AudioRaiseVolume">
-          <action name="Execute">
-            <command>setaudio -sq Master left 3+</command>
-          </action>
-        </keybind>
-        <keybind key="A-XF86AudioLowerVolume">
-          <action name="Execute">
-            <command>setaudio -sq Master left 3-</command>
-          </action>
-        </keybind>
-        <keybind key="W-XF86AudioRaiseVolume">
-          <action name="Execute">
-            <command>setaudio -sq Master left 50%</command>
-          </action>
-        </keybind>
-        <keybind key="W-XF86AudioLowerVolume">
-          <action name="Execute">
-            <command>setaudio -sq Master left 10%</command>
-          </action>
-        </keybind>
-        <keybind key="Escape">
-          <action name="BreakChroot"/>
-        </keybind>
-      </keybind>
-      <keybind chroot="yes" key="r">
-        <keybind key="XF86AudioMute">
-          <action name="Execute">
-            <command>setaudio -sq Master right 0</command>
-          </action>
-        </keybind>
-        <keybind key="XF86AudioRaiseVolume">
-          <action name="Execute">
-            <command>setaudio -sq Master right 1+</command>
-          </action>
-        </keybind>
-        <keybind key="XF86AudioLowerVolume">
-          <action name="Execute">
-            <command>setaudio -sq Master right 1-</command>
-          </action>
-        </keybind>
-        <keybind key="A-XF86AudioRaiseVolume">
-          <action name="Execute">
-            <command>setaudio -sq Master right 3+</command>
-          </action>
-        </keybind>
-        <keybind key="A-XF86AudioLowerVolume">
-          <action name="Execute">
-            <command>setaudio -sq Master right 3-</command>
-          </action>
-        </keybind>
-        <keybind key="W-XF86AudioRaiseVolume">
-          <action name="Execute">
-            <command>setaudio -sq Master right 50%</command>
-          </action>
-        </keybind>
-        <keybind key="W-XF86AudioLowerVolume">
-          <action name="Execute">
-            <command>setaudio -sq Master right 10%</command>
-          </action>
-        </keybind>
-        <keybind key="Escape">
-          <action name="BreakChroot"/>
-        </keybind>
-      </keybind>
-      <keybind key="Escape">
-        <action name="BreakChroot"/>
-      </keybind>
     </keybind>
 
     <!-- Controlling EMMS -->
