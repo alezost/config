@@ -3,7 +3,8 @@
 ### Cmnd alias specification
 
 Cmnd_Alias HALT = /run/current-system/profile/sbin/reboot, \
-                  /run/current-system/profile/sbin/halt
+                  /run/current-system/profile/sbin/halt, \
+                  /run/current-system/profile/bin/suspend
 Cmnd_Alias VT   = /run/current-system/profile/bin/chvt, \
                   /run/current-system/profile/bin/fgconsole
 Cmnd_Alias X    = /run/current-system/profile/bin/Xdaemon, \
