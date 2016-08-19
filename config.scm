@@ -292,8 +292,7 @@ deployed.  '--fetch' and '--deploy' can be specified together.")
   (reverse
    (args-fold args %options
               (lambda (opt name arg seed)
-                ((message-proc #:destination (current-error-port))
-                 "Unrecognized option: '~a'." name)
+                (print-error "Unrecognized option: '~a'" name)
                 seed)
               (lambda (arg seed)
                 (alist-cons 'config arg seed))
@@ -363,8 +362,7 @@ Example:
   (filter-map
    (lambda (name)
      (or (lookup-config name)
-         (begin ((message-proc #:destination (current-error-port))
-                 "No '~a' configuration was found." name)
+         (begin (print-error "No '~a' configuration was found" name)
                 #f)))
    names))
 
