@@ -367,23 +367,19 @@ Example:
                 #f)))
    names))
 
-(define (main args)
-  (match args
-    ((command args ...)
-     (let* ((opts         (parse-args args))
-            (config-names (options->config-names opts))
-            (action-names (options->action-names opts))
-            (configs      (if (null? config-names)
-                              %configs
-                              (lookup-configs config-names)))
-            (action       (or (action-names->action action-names)
-                              (leave (string-append
-                                      "No action is specified.
-Try '~a --help' for more information.")
-                                     command))))
-       (map action configs)))))
+(define (main arg0 . args)
+  (let* ((opts         (parse-args args))
+         (config-names (options->config-names opts))
+         (action-names (options->action-names opts))
+         (configs      (if (null? config-names)
+                           %configs
+                           (lookup-configs config-names)))
+         (action       (or (action-names->action action-names)
+                           (leave "\
+No action is specified, try --help for more information"))))
+    (map action configs)))
 
 (when (batch-mode?)
-  (main (command-line)))
+  (apply main (command-line)))
 
 ;;; config.scm ends here
