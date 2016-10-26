@@ -104,6 +104,10 @@
                      (link* #:filename (home-file ".conkerorrc")
                             #:target (config-file "conkeror/init.js"))))
 
+   (config* #:name "wget"
+            #:links (list
+                     (link* #:filename (home-file ".wgetrc")
+                            #:target (config-file "wget/wgetrc"))))
    (config* #:name "top"
             #:links (list
                      (link* #:filename (home-file ".toprc")
