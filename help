@@ -11,10 +11,6 @@ trying to recall how to proceed.  Here we go:
 
    $ ./bootstrap
 
-2. (Only for GuixSD) Make "/usr/bin/env" to be able to run your scripts:
-
-   # ln -sv /run/current-system/profile /usr
-
-3. Start new VT and enjoy your environment: populate guix profiles with
+2. Start new VT and enjoy your environment: populate guix profiles with
    'profile all', reconfigure GuixSD with 'system r', etc.
 EOF
