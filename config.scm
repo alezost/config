@@ -84,7 +84,7 @@
                      (link* #:filename (home-file ".bashrc")
                             #:target (config-file "shell/bash/bashrc"))
                      (link* #:filename (home-file ".bash_profile")
-                            #:target (config-file "shell/bash/profile"))))
+                            #:target (config-file "shell/bash/user-profile"))))
    (config* #:name "emacs"
             #:source (source* #:uri (my-repo "emacs-config")
                               #:directory (config-file "emacs"))
