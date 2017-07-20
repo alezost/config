@@ -2,7 +2,7 @@
 !#
 ;;; config.scm --- Deploy config files
 
-;; Copyright © 2015, 2016 Alex Kost
+;; Copyright © 2015–2017 Alex Kost
 
 ;; Author: Alex Kost <alezost@gmail.com>
 ;; Created:  3 Mar 2015
@@ -103,7 +103,6 @@
             #:links (list
                      (link* #:filename (home-file ".conkerorrc")
                             #:target (config-file "conkeror/init.js"))))
-
    (config* #:name "wget"
             #:links (list
                      (link* #:filename (home-file ".wgetrc")
@@ -120,6 +119,12 @@
             #:links (list
                      (link* #:filename (home-file ".gitconfig")
                             #:target (config-file "git/gitconfig"))))
+   (config* #:name "postgresql"
+            #:links (list
+                     (link* #:filename (home-file ".postgresql/data/postgresql.conf")
+                            #:target (config-file "postgresql/postgresql.conf"))
+                     (link* #:filename (home-file ".postgresql/data/pg_hba.conf")
+                            #:target (config-file "postgresql/pg_hba.conf"))))
    (config* #:name "lirc"
             #:links (list
                      (link* #:filename (home-file ".lircrc")
@@ -140,7 +145,6 @@
             #:links (list
                      (link* #:filename (home-file ".mplayer")
                             #:target (config-file "mplayer"))))
-
    (config* #:name "mpv"
             #:links (list
                      (link* #:filename (home-file ".config/mpv")
@@ -165,14 +169,12 @@
             #:links (list
                      (link* #:filename (home-file ".config/fontconfig")
                             #:target (config-file "fontconfig"))))
-
    (config* #:name "gtk"
             #:links (list
                      (link* #:filename (home-file ".gtkrc-2.0")
                             #:target (config-file "gtk/gtkrc-2.0"))
                      (link* #:filename (home-file ".config/gtk-3.0")
                             #:target (config-file "gtk/3.0"))))
-
    (config* #:name "X"
             #:links (list
                      (link* #:filename (home-file ".Xmodmap")
