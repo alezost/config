@@ -7,6 +7,10 @@ include theme
 set recolor "true"
 # set recolor-keephue "true"
 
+set page-padding 10
+set scroll-wrap "true"
+set statusbar-home-tilde "true"
+
 map <C-.> scroll up
 map <C-e> scroll down
 map <C-o> scroll left
