@@ -25,7 +25,9 @@ map h navigate previous
 map n navigate next
 
 map b adjust_window best-fit
+map H adjust_window best-fit
 map w adjust_window width
+map W adjust_window width
 map p rotate rotate-ccw
 map <Left> rotate rotate-ccw
 map , rotate rotate-cw
