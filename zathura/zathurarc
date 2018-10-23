@@ -42,3 +42,4 @@ map g reload
 map c recolor
 map u follow
 map i toggle_index
+map Q quit
