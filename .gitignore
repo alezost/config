@@ -3,6 +3,7 @@
 /guile
 /guile-daemon
 /guix
+/mpv/watch_later
 /rtorrent/session
 /secret
 /shell
