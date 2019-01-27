@@ -9,5 +9,11 @@ set inputbar-bg "#3f3f3f"
 set inputbar-fg "#d5d2be"
 set statusbar-bg "#2b2b2b"
 set statusbar-fg "#d5d2be"
+
+set index-bg "#3f3f3f"
+set index-fg "#d5d2be"
+set index-active-bg "#4f4f4f"
+set index-active-fg "#d5d2be"
+
 set recolor-lightcolor "#3f3f3f"
 set recolor-darkcolor "#d5d2be"
