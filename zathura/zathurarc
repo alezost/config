@@ -1,5 +1,8 @@
 # -*- mode: conf-space -*-
 
+# Default settings: ~/src/zathura/zathura/config.c
+# Names of special keys: ~/src/girara/girara/commands.c
+
 set font "liberation mono 12"
 
 include theme
@@ -43,3 +46,15 @@ map c recolor
 map u follow
 map i toggle_index
 map Q quit
+
+# Index mode
+map [index] i toggle_index
+map [index] . navigate_index up
+map [index] e navigate_index down
+map [index] u navigate_index select
+map [index] + navigate_index expand
+map [index] - navigate_index collapse
+map [index] <Tab> navigate_index toggle
+# Unfortunately, there is no "toggle-all":
+map [index] <ShiftTab> navigate_index expand-all
+map [index] <A-ShiftTab> navigate_index collapse-all
