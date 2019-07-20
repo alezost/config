@@ -1,3 +1,8 @@
+/* This is my config for sxiv 24.  Since version 25, the author decided
+ * that "Two colors are more than enough":
+ * <https://github.com/muennich/sxiv/commit/919ada11232781e3624363d834a6b9851c3a2bcb>.
+ * 2 colors is definitely less than enough for me, so I stick to version 24. */
+
 #ifdef _WINDOW_CONFIG
 
 /* Default window dimensions (overwritten via -g option): */
