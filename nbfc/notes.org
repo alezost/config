@@ -1,0 +1,31 @@
+This is my config for [[https://github.com/hirschmann/nbfc/][nbfc]] ("Notebook Fan Control").
+
+Some "self-notes" follows...
+
+[[file:Acer Aspire E5-576.xml]] originates from "Acer Aspire E5-575G.xml"
+file taken from [[https://github.com/hirschmann/nbfc/pull/651/files]].  It
+should be put to [[file:/opt/nbfc/Configs]]:
+
+#+BEGIN_SRC sh
+sudo ln -sv ~/config/nbfc/Acer\ Aspire\ E5-576.xml /opt/nbfc/Configs/
+#+END_SRC
+
+After starting nbfc service, I got "File Descriptor does not support
+writing" error.  This problem was mentioned on the [[https://wiki.archlinux.org/index.php/Fan_Speed_Control ][ArchWiki page]] and
+described [[https://github.com/hirschmann/nbfc/issues/439][here]].  A solution was simply to remove (rename) some library:
+
+#+BEGIN_SRC sh
+systemctl stop nbfc
+sudo mv -v /opt/nbfc/Plugins/StagWare.Plugins.ECSysLinux.dll /opt/nbfc/Plugins/StagWare.Plugins.ECSysLinux.dll.old
+systemctl start nbfc
+#+END_SRC
+
+Finally, some examples of "nbfc" usage:
+
+#+BEGIN_SRC sh
+nbfc config -a "Acer Aspire E5-576"
+nbfc status
+nbfc set -a    # set speed to "auto"
+nbfc set -s 0  # turn the fan off
+nbfc set -s 10 # turn it to 10%
+#+END_SRC
