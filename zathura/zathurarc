@@ -44,8 +44,11 @@ map <A-g> goto
 map g reload
 map c recolor
 map u follow
+map <Return> toggle_presentation
 map i toggle_index
 map Q quit
+
+map [presentation] <Return> toggle_presentation
 
 # Index mode
 map [index] i toggle_index
