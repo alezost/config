@@ -153,6 +153,10 @@
             #:links (list
                      (link* #:filename (home-file ".config/youtube-dl")
                             #:target (config-file "youtube-dl"))))
+   (config* #:name "yt-dlp"
+            #:links (list
+                     (link* #:filename (home-file ".config/yt-dlp")
+                            #:target (config-file "yt-dlp"))))
    (config* #:name "openbox"
             #:links (list
                      (link* #:filename (home-file ".config/openbox")
