@@ -40,6 +40,9 @@ map <Left> rotate rotate-ccw
 map , rotate rotate-cw
 map <Right> rotate rotate-cw
 
+map <C-s> search forward
+map <C-r> search backward
+
 map <A-g> goto
 map g reload
 map c recolor
