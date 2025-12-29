@@ -97,12 +97,6 @@
             #:links (list
                      (link* #:filename (home-file ".stumpwmrc")
                             #:target (config-file "stumpwm/init.lisp"))))
-   (config* #:name "conkeror"
-            #:source (source* #:uri (my-repo "conkeror-config")
-                              #:directory (config-file "conkeror"))
-            #:links (list
-                     (link* #:filename (home-file ".conkerorrc")
-                            #:target (config-file "conkeror/init.js"))))
    (config* #:name "wget"
             #:links (list
                      (link* #:filename (home-file ".wgetrc")
