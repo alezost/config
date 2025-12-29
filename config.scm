@@ -2,7 +2,7 @@
 !#
 ;;; config.scm --- Deploy config files
 
-;; Copyright © 2015–2017 Alex Kost
+;; Copyright © 2015–2025 Alex Kost
 
 ;; Author: Alex Kost <alezost@gmail.com>
 ;; Created:  3 Mar 2015
@@ -89,6 +89,8 @@
             #:source (source* #:uri (my-repo "emacs-config")
                               #:directory (config-file "emacs"))
             #:links (list
+                     (link* #:filename (home-file ".emacs.d/early-init.el")
+                            #:target (config-file "emacs/init/early-init.el"))
                      (link* #:filename (home-file ".emacs.d/init.el")
                             #:target (config-file "emacs/init/init.el"))))
    (config* #:name "stumpwm"
