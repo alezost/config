@@ -3,6 +3,9 @@
 !!! Emacs
 Emacs.MenuBar: off
 Emacs.ToolBar: off
+! For some reason, there are both "ScrollBar" and "ScrollBars" classes.
+! See (info "(emacs) Table of Resources").  Disable both.
+Emacs.ScrollBar: off
 Emacs.ScrollBars: off
 ! Emacs.font: -*-Liberation Mono-normal-r-*-*-12-*-*-*-*-0-*-1
 
