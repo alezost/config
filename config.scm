@@ -2,7 +2,7 @@
 !#
 ;;; config.scm --- Deploy config files
 
-;; Copyright © 2015–2025 Alex Kost
+;; Copyright © 2015–2026 Alex Kost
 
 ;; Author: Alex Kost <alezost@gmail.com>
 ;; Created:  3 Mar 2015
@@ -181,6 +181,8 @@
                             #:target (config-file "X/Xmodmap"))
                      (link* #:filename (home-file ".Xresources")
                             #:target (config-file "X/Xresources"))
+                     (link* #:filename (home-file ".xinitrc")
+                            #:target (config-file "X/.xinitrc"))
                      (link* #:filename (home-file "XTerm")
                             #:target (config-file "X/XTerm"))))))
 
