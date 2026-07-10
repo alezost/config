@@ -1,9 +1,27 @@
 ;; -*- mode: lisp -*-
 
-;;; The following lines added by ql:add-to-init-file:
-#-quicklisp
-(let ((quicklisp-init (merge-pathnames ".quicklisp/setup.lisp"
-                                       (user-homedir-pathname))))
-  (when (probe-file quicklisp-init)
-    (load quicklisp-init)))
+(let ((ql-setup (merge-pathnames ".quicklisp/setup.lisp"
+                                 (user-homedir-pathname))))
+  (when (probe-file ql-setup)
+    (load ql-setup)
 
+    (defun al/curl-fetch (url file &rest _)
+      (declare (ignore _))
+      ;; (format t "url: ~A~%" url)
+      ;; (format t "file: ~A~%" file)
+      (let ((process (sb-ext:run-program
+                      "/usr/bin/curl"
+                      (list "-SL" "-o" (namestring file) url)
+                      :search nil)))
+        (if (zerop (sb-ext:process-exit-code process))
+          (probe-file file)
+          (error "curl failed to download ~A" url))))
+
+    (let ((fetch-var (find-symbol "*FETCH-SCHEME-FUNCTIONS*"
+                                  "QL-HTTP")))
+      (if fetch-var
+        ;; Download files with `curl' instead of `ql-http:http-fetch'
+        ;; because the latter is not reliable when ISP uses DPI heavily.
+        (setf (symbol-value fetch-var)
+              '(("http" . al/curl-fetch)))
+        (format t "WARNING: `ql-http:*fetch-scheme-functions*' not found")))))
