@@ -93,6 +93,16 @@
                             #:target (config-file "emacs/init/early-init.el"))
                      (link* #:filename (home-file ".emacs.d/init.el")
                             #:target (config-file "emacs/init/init.el"))))
+   (config* #:name "lisp"
+            #:source (source* #:uri (my-repo "lisp-config")
+                              #:directory (config-file "lisp"))
+            #:links (list
+                     (link* #:filename (home-file ".sbclrc")
+                            #:target (config-file "lisp/sbclrc.lisp"))
+                     ;; Default ASDF locations:
+                     ;; <https://asdf.common-lisp.dev/asdf/Configuring-ASDF-to-find-your-systems.html>.
+                     (link* #:filename (home-file ".local/share/common-lisp/source/al")
+                            #:target (config-file "lisp"))))
    (config* #:name "stumpwm"
             #:source (source* #:uri (my-repo "stumpwm-config")
                               #:directory (config-file "stumpwm"))
@@ -107,10 +117,6 @@
             #:links (list
                      (link* #:filename (home-file ".toprc")
                             #:target (config-file "top/toprc"))))
-   (config* #:name "sbcl"
-            #:links (list
-                     (link* #:filename (home-file ".sbclrc")
-                            #:target (config-file "sbcl/sbclrc"))))
    (config* #:name "git"
             #:links (list
                      (link* #:filename (home-file ".gitconfig")
