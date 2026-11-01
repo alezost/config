@@ -1,4 +1,4 @@
-#!/usr/bin/env guile
+#!/usr/bin/env guile-script
 !#
 ;;; config.scm --- Deploy config files
 
@@ -27,19 +27,19 @@
 
 ;;; Code:
 
-(use-modules
+(import
  (ice-9 format)
- (ice-9 match)
- (srfi srfi-1)
- (srfi srfi-26)
- (srfi srfi-37)
+ (srfi 1)
+ (srfi 26)
+ (srfi 37)
+ (match)
  (al configs)
  (al files)
  (al links)
  (al messages)
  (al places)
  (al sources)
- (al utils))
+ (al misc))
 
 (set-locale)
 
@@ -57,9 +57,9 @@
             #:links (list
                      (link* #:filename (bin-file "config")
                             #:target (config-file "config.scm"))))
-   (config* #:name "guile"
-            #:source (source* #:uri (my-repo "guile-config")
-                              #:directory (config-file "guile")))
+   (config* #:name "scheme"
+            #:source (source* #:uri (my-repo "scheme-config")
+                              #:directory (config-file "scheme")))
    (config* #:name "guix"
             #:source (source* #:uri (my-repo "guix-config")
                               #:directory (guix-config-file)))

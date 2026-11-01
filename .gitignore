@@ -1,11 +1,11 @@
 /conkeror
 /emacs
-/guile
 /guile-daemon
 /guix
 /lisp
 /mpv/watch_later
 /rtorrent/session
+/scheme
 /secret
 /shell
 /shepherd
